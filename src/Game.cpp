@@ -6,7 +6,12 @@
 // Init Functions
 void Game::InitWindow()
 {
-	window = new sf::RenderWindow(sf::VideoMode(1280, 720), "SFML works!");
+	window = new sf::RenderWindow(sf::VideoMode(1280, 720), "SFML works!", sf::Style::Close, settings);
+    settings.antialiasingLevel = 4;
+    settings = window->getSettings();    
+    window->setFramerateLimit(60);
+    std::cout << SFML_VERSION_MAJOR << "." << SFML_VERSION_MINOR << "." << SFML_VERSION_PATCH << std::endl;
+    std::cout << settings.majorVersion << "." << settings.minorVersion << std::endl;
 }
 
 // Constructurs/Destructors

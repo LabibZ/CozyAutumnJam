@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
+#include <SFML/Config.hpp>
 #include <SFML/Audio.hpp>
 // TODO: add network later
 
@@ -15,6 +15,7 @@ class Game
 {
 private:
 	sf::RenderWindow* window;
+	sf::ContextSettings settings;
 	sf::Event event;
 
 	sf::Clock deltaTimeClock;
