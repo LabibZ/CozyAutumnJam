@@ -1,6 +1,6 @@
 #include "Table.h"
 
-Table::Table(Texture texture, Vector2i pos) {
+Table::Table(Texture& texture, Vector2i pos) {
     position = pos;
     sprite.setTexture(texture);
     sprite.setPosition(position.x, position.y);
