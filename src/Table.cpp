@@ -1,8 +1,7 @@
 #include "Table.h"
 
-Table::Table(Vector2i pos) {
+Table::Table(Texture texture, Vector2i pos) {
     position = pos;
-    texture.loadFromFile("../src/assets/Map/table.png");
     sprite.setTexture(texture);
     sprite.setPosition(position.x, position.y);
     sprite.setScale(scale);

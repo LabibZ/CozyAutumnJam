@@ -10,7 +10,7 @@ using namespace sf;
 
 class Table : public Furniture{
     public:
-        Table(Vector2i pos);
+        Table(Texture texture, Vector2i pos);
         void render(RenderWindow *screen);
 };
 

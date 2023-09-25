@@ -14,6 +14,7 @@ class Map{
         std::vector<IntRect> getCollisionRecs();
     private:
         Texture bgTexture{};
+        Texture tableTexture{};
         Sprite bgSprite{};
         Vector2f scale{3.f, 3.f};
         std::vector<Table> tables{};

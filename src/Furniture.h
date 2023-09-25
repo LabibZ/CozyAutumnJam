@@ -10,7 +10,6 @@ class Furniture{
     public:
         IntRect getCollisionRec();
     protected:
-        Texture texture{};
         Sprite sprite{};
         Vector2i position{};
         Vector2f size{};

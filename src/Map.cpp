@@ -5,8 +5,9 @@ Map::Map(){
     bgSprite.setTexture(bgTexture);
     bgSprite.setScale(scale);
 
-    tables.push_back(Table({350, 400}));
-    tables.push_back(Table({600, 250}));
+    tableTexture.loadFromFile("../src/assets/Map/table.png");
+    tables.push_back(Table(tableTexture, {350, 400}));
+    tables.push_back(Table(tableTexture, {600, 250}));
 }
 
 void Map::render(RenderWindow *screen){
