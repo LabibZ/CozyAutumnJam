@@ -28,7 +28,7 @@ set(CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_FLAGS "-g -W -pedantic")
 
 # All .cpp-files
-set(SOURCES src/main.cpp src/game.cpp)
+set(SOURCES src/main.cpp src/game.cpp src/Player.cpp) 
 # folder with .h files, e.g. include/
 include_directories(src)
 

@@ -1,7 +1,8 @@
 #include "Game.h"
+#include "Player.h"
 
 // Static Functions
-
+static Player player1;
 
 // Init Functions
 void Game::InitWindow()
@@ -38,6 +39,9 @@ void Game::UpdateSFMLEvents()
     {
         if (event.type == sf::Event::Closed)
             window->close();
+        else if (event.type == sf::Event::KeyPressed || event.type == sf::Event::KeyReleased){
+            player1.move(event);
+        }
     }
 
 }
@@ -46,6 +50,7 @@ void Game::Update()
 {
     UpdateSFMLEvents();
 
+    player1.update(deltaTime);
 }
 
 void Game::Render()
@@ -53,6 +58,7 @@ void Game::Render()
     window->clear();
 
     // Render Items
+    player1.render(window, deltaTime);
 
     window->display();
 }
