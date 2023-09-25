@@ -1,8 +1,10 @@
 #include "Game.h"
 #include "Player.h"
+#include "Map.h"
 
 // Static Functions
 static Player player1;
+static Map map;
 
 // Init Functions
 void Game::InitWindow()
@@ -50,7 +52,8 @@ void Game::Update()
 {
     UpdateSFMLEvents();
 
-    player1.update(deltaTime);
+    std::vector<IntRect> recs = map.getCollisionRecs();
+    player1.update(deltaTime, recs);
 }
 
 void Game::Render()
@@ -58,6 +61,7 @@ void Game::Render()
     window->clear();
 
     // Render Items
+    map.render(window);
     player1.render(window, deltaTime);
 
     window->display();
