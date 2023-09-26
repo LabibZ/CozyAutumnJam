@@ -161,18 +161,18 @@ libraries = {
 tree_root = SubResource("9")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Direction" type="Marker2D" parent="."]
 position = Vector2(0, -6)
 
-[node name="InteractableFinder" type="Area2D" parent="Marker2D"]
+[node name="InteractableFinder" type="Area2D" parent="Direction"]
 position = Vector2(0, 9)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/InteractableFinder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/InteractableFinder"]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_oct0n")
 
-[connection signal="area_entered" from="Marker2D/InteractableFinder" to="." method="_on_interactable_finder_area_entered"]
-[connection signal="area_exited" from="Marker2D/InteractableFinder" to="." method="_on_interactable_finder_area_exited"]
+[connection signal="area_entered" from="Direction/InteractableFinder" to="." method="_on_interactable_finder_area_entered"]
+[connection signal="area_exited" from="Direction/InteractableFinder" to="." method="_on_interactable_finder_area_exited"]

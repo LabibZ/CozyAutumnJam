@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhwf11jbb4ix5" path="res://Map/TopDownHouse_FloorsAndWalls.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://crdwx4v11tsxm" path="res://Map/TopDownHouse_FurnitureState1.png" id="2_7jfqy"]
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/Counter.png" id="3_y5odq"]
-[ext_resource type="Script" path="res://Scripts/BoilingMachine.gd" id="5_8bvbv"]
+[ext_resource type="Script" path="res://Scripts/Machine.gd" id="6_bokfk"]
 [ext_resource type="PackedScene" uid="uid://r8d4bcbymyqk" path="res://Components/interactable.tscn" id="6_x2h1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
@@ -482,28 +482,25 @@ shape = SubResource("RectangleShape2D_y4p76")
 position = Vector2(160, 224)
 shape = SubResource("RectangleShape2D_3rrxw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(136, 144)
-texture = ExtResource("3_y5odq")
-region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
-script = ExtResource("5_8bvbv")
-
-[node name="Interactable" parent="Sprite2D" instance=ExtResource("6_x2h1l")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable"]
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_53hci")
-
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(136, 168)
 texture = ExtResource("3_y5odq")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
-script = ExtResource("5_8bvbv")
 
 [node name="Interactable" parent="Sprite2D2" instance=ExtResource("6_x2h1l")]
+script = ExtResource("6_bokfk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Interactable"]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_53hci")
+
+[node name="Time" type="Label" parent="Sprite2D2/Interactable"]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 24.0
+offset_bottom = -6.0
+size_flags_horizontal = 4
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
