@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=16 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhwf11jbb4ix5" path="res://Map/TopDownHouse_FloorsAndWalls.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://crdwx4v11tsxm" path="res://Map/TopDownHouse_FurnitureState1.png" id="2_7jfqy"]
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/Counter.png" id="3_y5odq"]
+[ext_resource type="Script" path="res://Scripts/BoilingMachine.gd" id="5_8bvbv"]
+[ext_resource type="PackedScene" uid="uid://r8d4bcbymyqk" path="res://Components/interactable.tscn" id="6_x2h1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
 texture = ExtResource("2")
@@ -423,6 +425,10 @@ size = Vector2(8, 152)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rrxw"]
 size = Vector2(288, 8)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53hci"]
+radius = 8.0
+height = 48.0
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -475,3 +481,29 @@ shape = SubResource("RectangleShape2D_y4p76")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(160, 224)
 shape = SubResource("RectangleShape2D_3rrxw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(136, 144)
+texture = ExtResource("3_y5odq")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("5_8bvbv")
+
+[node name="Interactable" parent="Sprite2D" instance=ExtResource("6_x2h1l")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_53hci")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(136, 168)
+texture = ExtResource("3_y5odq")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("5_8bvbv")
+
+[node name="Interactable" parent="Sprite2D2" instance=ExtResource("6_x2h1l")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Interactable"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_53hci")
