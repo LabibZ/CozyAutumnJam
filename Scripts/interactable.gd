@@ -1,7 +1,5 @@
-extends Area2D
-class_name Interactable
+class_name Interactable extends Area2D
 
-signal interacted()
 var label: String
 
 func interact():

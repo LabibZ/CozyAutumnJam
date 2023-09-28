@@ -5,8 +5,8 @@
 [ext_resource type="SpriteFrames" uid="uid://cx68v0vtbyr0e" path="res://Player/PlayerAnim.tres" id="4"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
-radius = 0.0
-height = 0.0
+radius = 4.0
+height = 14.0
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Idle"
@@ -150,6 +150,8 @@ animation = &"idle"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = -1.5708
 shape = SubResource("1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -173,6 +175,10 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/InteractableFinder"]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_oct0n")
+
+[node name="Hand" type="Marker2D" parent="."]
+z_index = 1
+position = Vector2(6, -6)
 
 [connection signal="area_entered" from="Direction/InteractableFinder" to="." method="_on_interactable_finder_area_entered"]
 [connection signal="area_exited" from="Direction/InteractableFinder" to="." method="_on_interactable_finder_area_exited"]
