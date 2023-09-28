@@ -1,14 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=17 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhwf11jbb4ix5" path="res://Map/TopDownHouse_FloorsAndWalls.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://crdwx4v11tsxm" path="res://Map/TopDownHouse_FurnitureState1.png" id="2_7jfqy"]
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/Counter.png" id="3_y5odq"]
-[ext_resource type="PackedScene" uid="uid://kjhwbmhge5hu" path="res://Components/BoilingStation.tscn" id="7_fe1l4"]
-[ext_resource type="PackedScene" uid="uid://s4f8se1ugkby" path="res://Components/MilkPitcher.tscn" id="7_no52e"]
-[ext_resource type="PackedScene" uid="uid://okc31jgyc6sc" path="res://Components/Cup.tscn" id="7_qnfwo"]
+[ext_resource type="PackedScene" uid="uid://kjhwbmhge5hu" path="res://Components/Machines/BoilingStation.tscn" id="7_fe1l4"]
+[ext_resource type="PackedScene" uid="uid://okc31jgyc6sc" path="res://Components/Holdable/Cup.tscn" id="7_qnfwo"]
 [ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counter.tscn" id="8_homoj"]
-[ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/BoilingPot.tscn" id="8_ltwn4"]
+[ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/Holdable/BoilingPot.tscn" id="8_ltwn4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
 texture = ExtResource("2")
@@ -455,7 +454,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(327698, 3, 0, 327697, 3, 0, 327696, 3, 0, 327695, 3, 0, 327694, 3, 0, 327693, 65539, 0, 393229, 65539, 0, 458765, 65539, 0, 524301, 65539, 0, 589837, 65539, 0, 655373, 65539, 0, 720909, 3, 0)
+layer_3/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(56, 176)
@@ -479,9 +478,6 @@ shape = SubResource("RectangleShape2D_y4p76")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(160, 224)
 shape = SubResource("RectangleShape2D_3rrxw")
-
-[node name="MilkPitcher" parent="." instance=ExtResource("7_no52e")]
-position = Vector2(96, 120)
 
 [node name="Counter" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 136)

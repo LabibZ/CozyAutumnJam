@@ -1,17 +1,18 @@
-class_name Pickupable extends Interactable
+class_name Holdable extends Interactable
 
-var hand: Node2D
+#var hand: Node2D
 var timer: Timer
 var processing_time: float = 5.0
 @onready var collision = $CollisionShape2D
 
 func _ready():
 	init_timer()
-	if get_parent() is Machine or get_parent() is Counter:
+	# TODO: maybe use an @export on the placeable to set it from the scene
+	if get_parent().is_in_group("Placeable"):
 		disable_collision()
 		get_parent().set_item(self)
 
-func pickup():
+func pickup(hand):
 	if get_parent() is Machine:
 		get_parent().reset_machine()
 	
@@ -21,14 +22,11 @@ func pickup():
 	disable_collision()
 	stop_timer()
 
-#func drop():
-#	# add drop off point
-#	get_parent().remove_child(self)
-#	hand.get_parent().get_parent().add_child(self) # TODO: clean?
-#	self.global_position = hand.global_position
-#	# enable collision after dropped
-#	# collision.disabled = false
-#	print(self.position)
+func drop(hand, placeable):
+	hand.remove_child(self)
+	placeable.add_child(self)
+	placeable.item = self
+	self.global_position = placeable.global_position
 
 ########################
 # Timer Functions

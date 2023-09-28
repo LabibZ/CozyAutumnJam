@@ -1,9 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ougl1rbsmstd"]
 
 [ext_resource type="Script" path="res://Scripts/Counter.gd" id="1_3pnak"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_glpmh"]
-size = Vector2(16, 16)
+[ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/Counter.png" id="2_yv0hh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3rsx"]
 size = Vector2(16, 16)
@@ -18,7 +16,9 @@ collision_mask = 0
 script = ExtResource("1_3pnak")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_glpmh")
+texture = ExtResource("2_yv0hh")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
 

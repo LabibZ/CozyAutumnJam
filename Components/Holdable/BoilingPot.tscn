@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://brh2njvhhn80s"]
 
-[ext_resource type="Script" path="res://Scripts/Pickupable/BoilingPot.gd" id="1_8n7ol"]
+[ext_resource type="Script" path="res://Scripts/Holdable/BoilingPot.gd" id="1_7kdqi"]
 [ext_resource type="Texture2D" uid="uid://m3jpfrvedj7o" path="res://Map/TopDownHouse_SmallItems.png" id="2_2pt6y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_soeem"]
@@ -10,7 +10,7 @@ height = 48.0
 [node name="BoilingPot" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
-script = ExtResource("1_8n7ol")
+script = ExtResource("1_7kdqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2pt6y")

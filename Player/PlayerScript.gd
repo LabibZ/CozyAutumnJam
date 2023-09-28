@@ -2,14 +2,23 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 100
 var all_interactions = []
-var held_item: Node2D = null
+var held_item: Holdable = null
+var input_vector: Vector2 = Vector2.ZERO
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var interactableFinder = $Direction/InteractableFinder
 @onready var hand = $Hand
 
-func _physics_process(delta):
-	var input_vector = Vector2.ZERO
+func _physics_process(_delta):
+	move_player()
+	
+	# Interact with latest object that entered the interaction zone
+	if Input.is_action_just_pressed("interact") && all_interactions:
+		execute_interaction(all_interactions[0]) # no issues with this yet so im keeping it
+
+# Player movement
+func move_player():
+	input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
@@ -23,33 +32,39 @@ func _physics_process(delta):
 	
 	set_velocity(velocity)
 	move_and_slide()
-	
-	if Input.is_action_just_pressed("interact") && all_interactions:
-		execute_interaction(all_interactions[0]) # no issues with this yet so im keeping it
 
 func execute_interaction(currInteraction):
-	currInteraction.label = currInteraction.to_string()
-	if !held_item:
-		if currInteraction is Pickupable:
-			currInteraction.hand = hand
-			held_item = currInteraction
-			currInteraction.pickup()
-		elif (currInteraction is Counter or currInteraction is Machine) && currInteraction.item:
-			currInteraction.item.hand = hand
-			held_item = currInteraction.item
-			currInteraction.item.pickup()
-			currInteraction.item = null
-		else:
-			currInteraction.interact()
+	currInteraction.label = currInteraction.to_string() # for testing
+	if held_item:
+		handle_item_interaction(currInteraction)
 	else:
-		if currInteraction is Counter or currInteraction is Machine: # or maybe a certain group? idk yet
-			if !currInteraction.item: # drop item
-				hand.remove_child(held_item)
-				currInteraction.add_child(held_item)
-				currInteraction.item = held_item
-				held_item.global_position = currInteraction.global_position
-				held_item = null
-				currInteraction.interact()
+		handle_noitem_interaction(currInteraction)
+
+# Handle interactions when player is holding item
+func handle_item_interaction(currInteraction):
+	if !currInteraction.is_in_group("Placeable"):
+		return
+		
+	if !currInteraction.item: # drop item
+		held_item.drop(hand, currInteraction)
+		held_item = null
+		currInteraction.interact()
+	else:
+		# item interactions
+		# for now, manually do them, but add a helper function later
+		if currInteraction.item is Cup && held_item is BoilingPot:
+			if held_item.boiled:
+				currInteraction.item.fill()
+
+# Handle interactions when player is not holding an item
+func handle_noitem_interaction(currInteraction):
+	if currInteraction.is_in_group("Placeable") && currInteraction.item: # pickup item
+		held_item = currInteraction.item
+		held_item.pickup(hand)
+		currInteraction.item = null
+	else:
+		print("interacted with object with no class attached.")
+		currInteraction.interact()
 
 ########################
 # Collision functions

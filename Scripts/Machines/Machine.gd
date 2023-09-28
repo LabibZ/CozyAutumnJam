@@ -9,16 +9,22 @@ enum MachineState {
 var current_state: MachineState = MachineState.IDLE
 var item: Node2D = null
 
-func interact():
-	pass
-#	if !item:
-#		return
-#
-#	if current_state == MachineState.IDLE:
-#		start_processing()
-#	elif current_state == MachineState.DONE:
-#		reset_machine()
+func _ready():
+	add_to_group("Placeable")
 
+# Called by player
+func interact():
+	if !check_requirements():
+		return
+
+	if current_state == MachineState.IDLE:
+		start_processing()
+	elif current_state == MachineState.DONE:
+		reset_machine()
+
+func check_requirements() -> bool:
+	return item != null
+	
 func set_item(object):
 	item = object
 
