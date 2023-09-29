@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/Counter.png" id="2_hmoxv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53hci"]
-radius = 8.0
-height = 48.0
+radius = 16.0
+height = 32.0
 
 [node name="BoilingStation" type="Area2D"]
 collision_layer = 256

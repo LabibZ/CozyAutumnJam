@@ -7,8 +7,8 @@
 size = Vector2(16, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1cqj"]
-radius = 8.0
-height = 48.0
+radius = 16.0
+height = 32.0
 
 [node name="Counter" type="Area2D"]
 collision_layer = 256

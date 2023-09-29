@@ -13,7 +13,7 @@ func _physics_process(_delta):
 	move_player()
 	
 	# Interact with latest object that entered the interaction zone
-	if Input.is_action_just_pressed("interact") && all_interactions:
+	if Input.is_action_just_pressed("interact") and all_interactions:
 		execute_interaction(all_interactions[0]) # no issues with this yet so im keeping it
 
 # Player movement
@@ -52,13 +52,14 @@ func handle_item_interaction(currInteraction):
 	else:
 		# item interactions
 		# for now, manually do them, but add a helper function later
-		if currInteraction.item is Cup && held_item is BoilingPot:
-			if held_item.boiled:
+		if currInteraction.item is Cup and held_item is BoilingPot:
+			if held_item.current_state == BoilingPot.BoilingState.BOILED:
 				currInteraction.item.fill()
+				held_item.current_state = BoilingPot.BoilingState.EMPTY
 
 # Handle interactions when player is not holding an item
 func handle_noitem_interaction(currInteraction):
-	if currInteraction.is_in_group("Placeable") && currInteraction.item: # pickup item
+	if currInteraction.is_in_group("Placeable") and currInteraction.item: # pickup item
 		held_item = currInteraction.item
 		held_item.pickup(hand)
 		currInteraction.item = null

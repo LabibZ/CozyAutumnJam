@@ -1,22 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://okc31jgyc6sc"]
+[gd_scene load_steps=3 format=3 uid="uid://okc31jgyc6sc"]
 
 [ext_resource type="Script" path="res://Scripts/Holdable/Cup.gd" id="1_1hjep"]
 [ext_resource type="Texture2D" uid="uid://m3jpfrvedj7o" path="res://Map/TopDownHouse_SmallItems.png" id="2_lps6l"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu7wc"]
-radius = 8.0
-height = 32.0
-
-[node name="Cup" type="Area2D"]
-collision_layer = 256
-collision_mask = 0
-script = ExtResource("1_1hjep")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Cup" type="Sprite2D"]
 texture = ExtResource("2_lps6l")
 region_enabled = true
 region_rect = Rect2(68, 102, 10, 9)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_pu7wc")
+script = ExtResource("1_1hjep")

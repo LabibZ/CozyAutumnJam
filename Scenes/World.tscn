@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=18 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhwf11jbb4ix5" path="res://Map/TopDownHouse_FloorsAndWalls.png" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://okc31jgyc6sc" path="res://Components/Holdable/Cup.tscn" id="7_qnfwo"]
 [ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counter.tscn" id="8_homoj"]
 [ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/Holdable/BoilingPot.tscn" id="8_ltwn4"]
+[ext_resource type="PackedScene" uid="uid://1ntap7dr3xlp" path="res://Components/Sink.tscn" id="9_n66vv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
 texture = ExtResource("2")
@@ -482,15 +483,20 @@ shape = SubResource("RectangleShape2D_3rrxw")
 [node name="Counter" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 136)
 
-[node name="Counter2" parent="." instance=ExtResource("8_homoj")]
+[node name="Counter2" parent="." node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
 position = Vector2(216, 104)
+item = NodePath("BoilingPot")
 
 [node name="BoilingPot" parent="Counter2" instance=ExtResource("8_ltwn4")]
 
-[node name="Counter3" parent="." instance=ExtResource("8_homoj")]
+[node name="Counter3" parent="." node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
 position = Vector2(216, 168)
+item = NodePath("Cup")
 
 [node name="Cup" parent="Counter3" instance=ExtResource("7_qnfwo")]
 
 [node name="BoilingStation" parent="." instance=ExtResource("7_fe1l4")]
 position = Vector2(128, 168)
+
+[node name="Sink" parent="." instance=ExtResource("9_n66vv")]
+position = Vector2(248, 72)

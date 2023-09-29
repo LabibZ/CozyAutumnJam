@@ -1,6 +1,5 @@
-class_name Holdable extends Interactable
+class_name Holdable extends Node2D
 
-#var hand: Node2D
 var timer: Timer
 var processing_time: float = 5.0
 @onready var collision = $CollisionShape2D
@@ -8,9 +7,9 @@ var processing_time: float = 5.0
 func _ready():
 	init_timer()
 	# TODO: maybe use an @export on the placeable to set it from the scene
-	if get_parent().is_in_group("Placeable"):
-		disable_collision()
-		get_parent().set_item(self)
+	#if get_parent().is_in_group("Placeable"):
+	# disable_collision()
+	get_parent().set_item(self)
 
 func pickup(hand):
 	if get_parent() is Machine:
@@ -19,7 +18,7 @@ func pickup(hand):
 	get_parent().remove_child(self)
 	hand.add_child(self)
 	self.position = hand.position
-	disable_collision()
+	# disable_collision()
 	stop_timer()
 
 func drop(hand, placeable):

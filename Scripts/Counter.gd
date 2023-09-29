@@ -1,6 +1,6 @@
 class_name Counter extends Interactable
 
-var item: Node2D = null
+@export var item: Holdable
 
 func _ready():
 	add_to_group("Placeable")

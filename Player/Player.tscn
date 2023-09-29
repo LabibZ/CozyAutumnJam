@@ -130,8 +130,8 @@ states/Run/position = Vector2(625, 117)
 transitions = ["Idle", "Run", SubResource("7"), "Run", "Idle", SubResource("8")]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oct0n"]
-radius = 8.0
-height = 22.0
+radius = 5.0
+height = 18.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1")

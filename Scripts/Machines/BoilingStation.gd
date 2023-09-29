@@ -2,11 +2,12 @@ class_name BoilingStation extends Machine
 
 func check_requirements() -> bool:
 	if item is BoilingPot:
-		if !item.boiled:
+		item = item as BoilingPot
+		if item.current_state == BoilingPot.BoilingState.FILLED:
 			return true
 	return false
 
 func processing_done():
 	super()
-	item.boiled = true
+	item.current_state = BoilingPot.BoilingState.BOILED
 	print("pot boiled")
