@@ -2,7 +2,6 @@ class_name Holdable extends Node2D
 
 var timer: Timer
 var processing_time: float = 5.0
-@onready var collision = $CollisionShape2D
 
 func _ready():
 	init_timer()
@@ -54,8 +53,8 @@ func timer_finished():
 ########################
 # Collision Functions
 ########################
-func disable_collision():
-	collision.disabled = true
-
-func enable_collision():
-	collision.disabled = false
+#func disable_collision():
+#	collision.disabled = true
+#
+#func enable_collision():
+#	collision.disabled = false

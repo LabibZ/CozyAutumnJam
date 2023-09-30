@@ -1,24 +1,95 @@
 [gd_scene load_steps=5 format=3 uid="uid://pvp8mr4n2k0t"]
 
-[ext_resource type="Texture2D" uid="uid://b008d78qu6vct" path="res://src/assets/dog.png" id="1_algij"]
 [ext_resource type="Script" path="res://Scripts/Customer.gd" id="1_qvguq"]
+[ext_resource type="Texture2D" uid="uid://b008d78qu6vct" path="res://Components/dog.png" id="2_7engy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dn45"]
-atlas = ExtResource("1_algij")
+atlas = ExtResource("2_7engy")
 region = Rect2(2.08165e-12, 2.08165e-12, 32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_byn0s"]
 
 [node name="Customer" type="Area2D"]
-collision_layer = 257
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("1_qvguq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-15, -22)
 texture = SubResource("AtlasTexture_4dn45")
-centered = false
+offset = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_byn0s")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -23.0
+offset_right = 16.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Base" type="TextureRect" parent="Control/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="item1_1" type="TextureRect" parent="Control/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+
+[node name="item1_2" type="TextureRect" parent="Control/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="item2_1" type="TextureRect" parent="Control/HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+flip_v = true
+
+[node name="item2_2" type="TextureRect" parent="Control/HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+flip_v = true

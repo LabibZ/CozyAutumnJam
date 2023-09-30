@@ -1,10 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://okc31jgyc6sc"]
 
 [ext_resource type="Script" path="res://Scripts/Holdable/Cup.gd" id="1_1hjep"]
-[ext_resource type="Texture2D" uid="uid://m3jpfrvedj7o" path="res://Map/TopDownHouse_SmallItems.png" id="2_lps6l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6ihn"]
+load_path = "res://.godot/imported/TopDownHouse_SmallItems.png-47228341c64172de9ae53329a727f8e4.ctex"
 
 [node name="Cup" type="Sprite2D"]
-texture = ExtResource("2_lps6l")
+texture = SubResource("CompressedTexture2D_y6ihn")
 region_enabled = true
 region_rect = Rect2(68, 102, 10, 9)
 script = ExtResource("1_1hjep")

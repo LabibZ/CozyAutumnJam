@@ -1,3 +1,0 @@
-/Users/jenn/Documents/Code/Games/CozyAutumnJam/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate.dir
-/Users/jenn/Documents/Code/Games/CozyAutumnJam/build/_deps/sfml-subbuild/CMakeFiles/edit_cache.dir
-/Users/jenn/Documents/Code/Games/CozyAutumnJam/build/_deps/sfml-subbuild/CMakeFiles/rebuild_cache.dir
