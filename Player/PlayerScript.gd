@@ -71,6 +71,7 @@ func handle_noitem_interaction(currInteraction):
 # Collision functions
 ########################
 func _on_interactable_finder_area_entered(area):
+	print(area)
 	all_interactions.push_back(area)
 
 func _on_interactable_finder_area_exited(area):

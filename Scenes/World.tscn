@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=20 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhwf11jbb4ix5" path="res://Map/TopDownHouse_FloorsAndWalls.png" id="2"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counter.tscn" id="8_homoj"]
 [ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/Holdable/BoilingPot.tscn" id="8_ltwn4"]
 [ext_resource type="PackedScene" uid="uid://1ntap7dr3xlp" path="res://Components/Sink.tscn" id="9_n66vv"]
+[ext_resource type="PackedScene" uid="uid://pvp8mr4n2k0t" path="res://Components/Customer.tscn" id="10_xr1xy"]
+[ext_resource type="Script" path="res://OrderManager.gd" id="11_6dndd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
 texture = ExtResource("2")
@@ -500,3 +502,9 @@ position = Vector2(128, 168)
 
 [node name="Sink" parent="." instance=ExtResource("9_n66vv")]
 position = Vector2(248, 72)
+
+[node name="Customer" parent="." instance=ExtResource("10_xr1xy")]
+position = Vector2(216, 202)
+
+[node name="OrderManager" type="Node2D" parent="."]
+script = ExtResource("11_6dndd")
