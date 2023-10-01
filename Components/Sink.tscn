@@ -21,7 +21,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, 16)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_cp6oj")
 

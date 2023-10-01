@@ -1,6 +1,8 @@
 class_name BoilingPot extends Holdable
 
 @onready var testTimer = $Time
+@onready var timerBar: ProgressBar = $TimerBar
+
 var current_state: BoilingState = BoilingState.EMPTY
 
 enum BoilingState {
@@ -16,3 +18,4 @@ func _process(_delta):
 		processing_time = 2.0
 	else:
 		processing_time = 5.0
+	timerBar.value = timer.time_left

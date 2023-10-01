@@ -6,6 +6,7 @@
 load_path = "res://.godot/imported/TopDownHouse_SmallItems.png-47228341c64172de9ae53329a727f8e4.ctex"
 
 [node name="Cup" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
 texture = SubResource("CompressedTexture2D_y6ihn")
 region_enabled = true
 region_rect = Rect2(68, 102, 10, 9)

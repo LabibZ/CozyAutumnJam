@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://kjhwbmhge5hu"]
+[gd_scene load_steps=5 format=3 uid="uid://kjhwbmhge5hu"]
 
 [ext_resource type="Script" path="res://Scripts/Machines/BoilingStation.gd" id="1_5k5p6"]
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/Counter.png" id="2_hmoxv"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53hci"]
 radius = 16.0
 height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdpmk"]
+size = Vector2(16, 16)
 
 [node name="BoilingStation" type="Area2D"]
 collision_layer = 256
@@ -19,5 +22,11 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_53hci")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rdpmk")

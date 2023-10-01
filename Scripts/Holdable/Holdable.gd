@@ -23,8 +23,12 @@ func pickup(hand):
 func drop(hand, placeable):
 	hand.remove_child(self)
 	placeable.add_child(self)
-	placeable.item = self
-	self.global_position = placeable.global_position
+	placeable.set_item(self)
+	if placeable is Table:
+		# TODO: add a function in Table to get correct marker based on where customer is seated
+		self.global_position = placeable.botDrop.global_position
+	else:
+		self.global_position = placeable.global_position
 
 ########################
 # Timer Functions
