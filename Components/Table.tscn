@@ -31,6 +31,9 @@ texture = ExtResource("2_40aqe")
 position = Vector2(0, 9)
 texture = ExtResource("3_j6ox2")
 
+[node name="ChairTop" parent="." instance=ExtResource("2_kmgd8")]
+position = Vector2(0, -8)
+
 [node name="TableSprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_tts88")
 
@@ -64,6 +67,3 @@ position = Vector2(24, 8)
 
 [node name="ChairBot" parent="." instance=ExtResource("2_kmgd8")]
 position = Vector2(0, 24)
-
-[node name="ChairTop" parent="." instance=ExtResource("2_kmgd8")]
-position = Vector2(0, -8)

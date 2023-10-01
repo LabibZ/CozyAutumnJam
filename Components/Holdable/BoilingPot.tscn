@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://m3jpfrvedj7o" path="res://Map/TopDownHouse_SmallItems.png" id="2_2pt6y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm7l0"]
-bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+bg_color = Color(0, 0.65098, 0.74902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apmfv"]
-bg_color = Color(0.623529, 0.898039, 0.984314, 1)
+bg_color = Color(0, 0, 0, 1)
 
 [node name="BoilingPot" type="Sprite2D"]
 texture = ExtResource("2_2pt6y")
@@ -31,6 +31,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TimerBar" type="ProgressBar" parent="."]
+visible = false
 anchors_preset = -1
 anchor_top = -0.955
 anchor_right = 1.0
@@ -42,5 +43,7 @@ offset_bottom = -1.495
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_vm7l0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_apmfv")
-max_value = 2.0
+fill_mode = 1
 show_percentage = false
+
+[connection signal="boiling_state_changed" from="." to="." method="_on_boiling_state_changed"]

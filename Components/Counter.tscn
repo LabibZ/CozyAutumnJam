@@ -7,8 +7,8 @@
 size = Vector2(16, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1cqj"]
-radius = 16.0
-height = 32.0
+radius = 8.0
+height = 48.0
 
 [node name="Counter" type="Area2D"]
 collision_layer = 256
@@ -26,6 +26,5 @@ region_rect = Rect2(16, 0, 16, 16)
 shape = SubResource("RectangleShape2D_b3rsx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_v1cqj")

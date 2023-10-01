@@ -31,10 +31,12 @@ func set_item(object):
 func start_processing() -> void:
 	current_state = MachineState.WORKING
 	item.start_timer()
+	item.timerBar.visible = true
 	print("working")
 
 func processing_done() -> void:
 	current_state = MachineState.DONE
+	item.timerBar.visible = false
 	print("done")
 	
 func reset_machine() -> void:

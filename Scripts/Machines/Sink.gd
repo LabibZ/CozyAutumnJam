@@ -2,7 +2,6 @@ class_name Sink extends Machine
 
 func _ready():
 	super()
-	
 
 func check_requirements() -> bool:
 	if item is BoilingPot:

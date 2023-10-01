@@ -7,7 +7,6 @@ func _ready():
 	init_timer()
 	# TODO: maybe use an @export on the placeable to set it from the scene
 	#if get_parent().is_in_group("Placeable"):
-	# disable_collision()
 	get_parent().set_item(self)
 
 func pickup(hand):
@@ -17,7 +16,6 @@ func pickup(hand):
 	get_parent().remove_child(self)
 	hand.add_child(self)
 	self.position = hand.position
-	# disable_collision()
 	stop_timer()
 
 func drop(hand, placeable):
@@ -53,12 +51,3 @@ func stop_timer():
 func timer_finished():
 	stop_timer()
 	get_parent().processing_done()
-
-########################
-# Collision Functions
-########################
-#func disable_collision():
-#	collision.disabled = true
-#
-#func enable_collision():
-#	collision.disabled = false

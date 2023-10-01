@@ -7,7 +7,16 @@ func check_requirements() -> bool:
 			return true
 	return false
 
+func start_processing() -> void:
+	super()
+	item.emit_signal("boiling_state_changed")
+	
 func processing_done():
 	super()
 	item.current_state = BoilingPot.BoilingState.BOILED
+	item.emit_signal("boiling_state_changed")
 	print("pot boiled")
+
+func reset_machine() -> void:
+	super()
+	item.emit_signal("boiling_state_changed")
