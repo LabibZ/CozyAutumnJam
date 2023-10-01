@@ -42,5 +42,5 @@ offset_bottom = -1.495
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_vm7l0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_apmfv")
-value = 100.0
+max_value = 2.0
 show_percentage = false
