@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf8na6elnjdev"]
+[gd_scene load_steps=8 format=3 uid="uid://cmk1uyknd0k7x"]
 
 [ext_resource type="Script" path="res://Scripts/Table.gd" id="1_1irbl"]
 [ext_resource type="Texture2D" uid="uid://c77qt7slrj4gv" path="res://Map/Carpet.png" id="2_40aqe"]
-[ext_resource type="PackedScene" uid="uid://ctqjyo45mfkww" path="res://Components/Chair.tscn" id="2_kmgd8"]
+[ext_resource type="PackedScene" uid="uid://82ay21d2eij8" path="res://Components/Chair.tscn" id="2_kmgd8"]
 [ext_resource type="Texture2D" uid="uid://56hkcscnywk8" path="res://Map/Carpet2.png" id="3_j6ox2"]
 [ext_resource type="Texture2D" uid="uid://b2qp8hrdbumjr" path="res://Map/Table.png" id="3_tts88"]
 
@@ -23,9 +23,6 @@ position = Vector2(0, 16)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_ihqcq")
 
-[node name="ChairTop" parent="." instance=ExtResource("2_kmgd8")]
-position = Vector2(0, -8)
-
 [node name="Carpet" type="Sprite2D" parent="."]
 position = Vector2(0, 9)
 texture = ExtResource("2_40aqe")
@@ -43,15 +40,6 @@ texture = ExtResource("3_tts88")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_y7i2o")
 
-[node name="ChairLeft" parent="." instance=ExtResource("2_kmgd8")]
-position = Vector2(-24, 8)
-
-[node name="ChairRight" parent="." instance=ExtResource("2_kmgd8")]
-position = Vector2(24, 8)
-
-[node name="ChairBot" parent="." instance=ExtResource("2_kmgd8")]
-position = Vector2(0, 24)
-
 [node name="LeftDrop" type="Marker2D" parent="."]
 position = Vector2(-10, 1)
 gizmo_extents = 50.0
@@ -67,3 +55,15 @@ gizmo_extents = 50.0
 [node name="TopDrop" type="Marker2D" parent="."]
 position = Vector2(0, -3)
 gizmo_extents = 50.0
+
+[node name="ChairLeft" parent="." instance=ExtResource("2_kmgd8")]
+position = Vector2(-24, 8)
+
+[node name="ChairRight" parent="." instance=ExtResource("2_kmgd8")]
+position = Vector2(24, 8)
+
+[node name="ChairBot" parent="." instance=ExtResource("2_kmgd8")]
+position = Vector2(0, 24)
+
+[node name="ChairTop" parent="." instance=ExtResource("2_kmgd8")]
+position = Vector2(0, -8)

@@ -15,8 +15,11 @@ enum CustomerState {
 	LEAVING
 }
 
+const SPEED = 80
+
+var destination: Vector2
 var orderId: int
-var currState = CustomerState.NOT_ORDERED
+var currState = CustomerState.ARRIVING
 var orderManager: OrderManager
 var CoffeeTexture = load("res://Components/Holdable/Coffee.png")
 var TeaTexture = load("res://Components/Holdable/Cup.tres")
@@ -27,10 +30,21 @@ func _ready():
 	orderManager = get_parent().get_node("OrderManager")
 
 func _process(_delta):
-	pass
-	#if currState = ARRIVING, locate empty spot and move towards it
-	#once arrived, state = NOT_ORDERED
+	match (currState):
+		CustomerState.ARRIVING:
+			if (destination):
+				if (get_position() == destination):
+					currState = CustomerState.NOT_ORDERED
+				else:
+					position = position.move_toward(destination, _delta * SPEED)
+			else:
+				for node in get_parent().get_node("Tables").get_children():
+					var chairPos = node.seatCustomer(self)
+					if (chairPos != null):
+						destination = chairPos
+						break
 	#once character takes their order, state = ORDER_TAKEN
+	#keep checking if customer is satisfied
 	#only if order is fulfilled, state = LEAVING, customer walks out and is destroyed
 
 func interact():
@@ -38,6 +52,7 @@ func interact():
 		CustomerState.NOT_ORDERED:
 			orderId = orderManager.generateOrder()
 			displayOrder(orderManager.getOrder(orderId))
+			currState = CustomerState.ORDER_TAKEN
 		CustomerState.ORDER_TAKEN:
 			print(orderManager.getOrder(orderId))
 			

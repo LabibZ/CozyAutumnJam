@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://1ntap7dr3xlp" path="res://Components/Sink.tscn" id="9_n66vv"]
 [ext_resource type="PackedScene" uid="uid://pvp8mr4n2k0t" path="res://Components/Customer.tscn" id="10_xr1xy"]
 [ext_resource type="Script" path="res://Scripts/OrderManager.gd" id="12_lma4q"]
-[ext_resource type="PackedScene" uid="uid://cf8na6elnjdev" path="res://Components/Table.tscn" id="13_ncgif"]
+[ext_resource type="PackedScene" uid="uid://cmk1uyknd0k7x" path="res://Components/Table.tscn" id="13_ncgif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
 texture = ExtResource("2")
@@ -503,8 +503,10 @@ position = Vector2(88, 136)
 [node name="Customer3" parent="." instance=ExtResource("10_xr1xy")]
 position = Vector2(128, 136)
 
-[node name="Table" parent="." instance=ExtResource("13_ncgif")]
+[node name="Tables" type="Node" parent="."]
+
+[node name="Table" parent="Tables" instance=ExtResource("13_ncgif")]
 position = Vector2(72, 96)
 
-[node name="Table2" parent="." instance=ExtResource("13_ncgif")]
+[node name="Table2" parent="Tables" instance=ExtResource("13_ncgif")]
 position = Vector2(152, 96)

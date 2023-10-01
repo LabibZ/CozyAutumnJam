@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctqjyo45mfkww"]
+[gd_scene load_steps=4 format=3 uid="uid://82ay21d2eij8"]
 
 [ext_resource type="Texture2D" uid="uid://dcr6kgg5joh7y" path="res://Map/Chair.png" id="1_3iw6k"]
+[ext_resource type="Script" path="res://Chair.gd" id="1_e1v73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmw71"]
 size = Vector2(16, 8)
 
 [node name="Chair" type="StaticBody2D"]
+script = ExtResource("1_e1v73")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3iw6k")
