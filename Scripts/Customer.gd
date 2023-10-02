@@ -11,7 +11,8 @@ class_name Customer extends Interactable
 enum CustomerState {
 	ARRIVING, 
 	NOT_ORDERED, 
-	ORDER_TAKEN, 
+	ORDER_TAKEN,
+	ORDER_COMPLETE, 
 	LEAVING
 }
 

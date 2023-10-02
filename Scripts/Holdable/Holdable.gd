@@ -25,8 +25,7 @@ func drop(hand, placeable):
 	placeable.add_child(self)
 	placeable.set_item(self)
 	if placeable is Table:
-		# TODO: add a function in Table to get correct marker based on where customer is seated
-		self.global_position = placeable.botDrop.global_position
+		self.global_position = placeable.dropPoint
 	else:
 		self.global_position = placeable.global_position
 

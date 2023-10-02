@@ -46,9 +46,16 @@ func handle_item_interaction(currInteraction):
 		return
 		
 	if !currInteraction.item: # drop item
-		held_item.drop(hand, currInteraction)
-		held_item = null
-		currInteraction.interact()
+		if currInteraction is Table:
+			currInteraction.item = held_item # TEMP
+			currInteraction.interact()
+			held_item.drop(hand, currInteraction)
+			currInteraction.item = null # TEMP
+			held_item = null
+		else:
+			held_item.drop(hand, currInteraction)
+			held_item = null
+			currInteraction.interact()
 	else:
 		# item interactions
 		# for now, manually do them, but add a helper function later

@@ -4,6 +4,10 @@ var filled: bool = false
 var emptyCup = Rect2(68, 102, 10, 9)
 var fillCup = Rect2(84, 102, 10, 9)
 
+func _ready():
+	super()
+	fill()
+
 func fill():
 	filled = true
 	get_node(".").region_rect = fillCup

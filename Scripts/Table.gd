@@ -7,13 +7,9 @@ enum TableState {
 	ORDERS_COMPLETE
 }
 
-# Placeable Drop Points
-@onready var leftDrop = $LeftDrop
-@onready var rightDrop = $RightDrop
-@onready var botDrop = $BotDrop
-@onready var topDrop = $TopDrop
-
+@onready var drops: Array[Marker2D] = [$LeftDrop, $RightDrop, $BotDrop, $TopDrop]
 @onready var chairs: Array[Chair] = [$ChairLeft, $ChairRight, $ChairBot, $ChairTop]
+@onready var dropPoint: Vector2 = self.global_position
 
 var current_state: TableState = TableState.ORDERS_NOT_TAKEN # TODO: CHANGE LATER
 var isFull: bool = false
@@ -28,17 +24,16 @@ func interact():
 			current_state = TableState.ORDERS_TAKEN
 		TableState.ORDERS_TAKEN:
 			# find matching order and submit
-			if !checkOrders():
-				pass
-			# display ui notif if not matching
+			checkOrders()
 
 func checkOrders():
-	for chair in chairs:
-		if chair.isOccupied:
-			if (!OrderManager.checkSameOrder(chair.getOrder(), item.asOrder())):
-				print("found matching order")
-				return true
-	return false
+	for i in range(chairs.size()):
+		if chairs[i].isOccupied:
+			# TODO: error check no item
+			if OrderManager.checkSameOrder(chairs[i].getOrder(), item.asOrder()) and !chairs[i].checkOccupantCompleted():
+				dropPoint = drops[i].global_position
+				chairs[i].setOccupantCompleted()
+				break
 
 func seatCustomer(customer):
 	if !isFull:

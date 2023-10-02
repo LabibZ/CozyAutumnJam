@@ -474,6 +474,8 @@ shape = SubResource("RectangleShape2D_3rrxw")
 [node name="Counter" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 136)
 
+[node name="Cup" parent="Counter" instance=ExtResource("7_qnfwo")]
+
 [node name="Counter2" parent="." node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
 position = Vector2(216, 104)
 item = NodePath("BoilingPot")
@@ -485,6 +487,12 @@ position = Vector2(216, 168)
 item = NodePath("Cup")
 
 [node name="Cup" parent="Counter3" instance=ExtResource("7_qnfwo")]
+
+[node name="Counter4" parent="." node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
+position = Vector2(216, 152)
+item = NodePath("../Counter3/Cup")
+
+[node name="Cup" parent="Counter4" instance=ExtResource("7_qnfwo")]
 
 [node name="BoilingStation" parent="." instance=ExtResource("7_fe1l4")]
 position = Vector2(216, 200)
