@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_iisr0"]
 [ext_resource type="Texture2D" uid="uid://dhwf11jbb4ix5" path="res://Map/TopDownHouse_FloorsAndWalls.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://crdwx4v11tsxm" path="res://Map/TopDownHouse_FurnitureState1.png" id="2_7jfqy"]
-[ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/Counter.png" id="3_y5odq"]
+[ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="4_bbu3u"]
 [ext_resource type="PackedScene" uid="uid://kjhwbmhge5hu" path="res://Components/Machines/BoilingStation.tscn" id="7_fe1l4"]
 [ext_resource type="PackedScene" uid="uid://okc31jgyc6sc" path="res://Components/Holdable/Cup.tscn" id="7_qnfwo"]
 [ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counter.tscn" id="8_homoj"]
@@ -411,7 +411,7 @@ texture = ExtResource("2_7jfqy")
 0:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yw7id"]
-texture = ExtResource("3_y5odq")
+texture = ExtResource("4_bbu3u")
 0:0/0 = 0
 1:0/0 = 0
 
@@ -433,6 +433,7 @@ size = Vector2(8, 152)
 size = Vector2(288, 8)
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_iisr0")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -495,12 +496,15 @@ position = Vector2(248, 72)
 script = ExtResource("12_lma4q")
 
 [node name="Customer" parent="." instance=ExtResource("10_xr1xy")]
+z_index = 1
 position = Vector2(48, 136)
 
 [node name="Customer2" parent="." instance=ExtResource("10_xr1xy")]
+z_index = 1
 position = Vector2(88, 136)
 
 [node name="Customer3" parent="." instance=ExtResource("10_xr1xy")]
+z_index = 1
 position = Vector2(128, 136)
 
 [node name="Tables" type="Node" parent="."]

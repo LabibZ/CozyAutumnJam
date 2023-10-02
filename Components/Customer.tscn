@@ -19,10 +19,12 @@ texture = SubResource("AtlasTexture_4dn45")
 offset = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 14)
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_byn0s")
+disabled = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

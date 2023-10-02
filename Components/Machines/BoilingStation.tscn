@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://kjhwbmhge5hu"]
 
 [ext_resource type="Script" path="res://Scripts/Machines/BoilingStation.gd" id="1_5k5p6"]
-[ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/Counter.png" id="2_hmoxv"]
+[ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="2_vytcn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53hci"]
 radius = 16.0
@@ -17,7 +17,7 @@ monitoring = false
 script = ExtResource("1_5k5p6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_hmoxv")
+texture = ExtResource("2_vytcn")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 

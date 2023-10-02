@@ -2,18 +2,20 @@ class_name Chair extends Node2D
 
 var isOccupied: bool = false
 var occupant: Customer = null
-var drink: Cup = null
 
-func getIsOccupied():
+func getIsOccupied() -> bool:
 	return isOccupied
 	
-func getOccupant():
+func getOccupant() -> Customer:
 	return occupant
 	
-func seat(customer):
+func getOrder() -> Order:
+	return occupant.getOrder()
+	
+func seat(customer: Customer) -> void:
 	occupant = customer
 	isOccupied = true
 	
-func unseat():
+func unseat() -> void:
 	occupant = null
 	isOccupied = false

@@ -18,16 +18,12 @@ enum CustomerState {
 const SPEED = 80
 
 var destination: Vector2
-var orderId: int
+var order: Order
 var currState = CustomerState.ARRIVING
-var orderManager: OrderManager
 var CoffeeTexture = load("res://Components/Holdable/Coffee.png")
 var TeaTexture = load("res://Components/Holdable/Cup.tres")
 var MilkTexture = load("res://Components/Holdable/Milk.png")
 var SugarTexture = load("res://Components/Holdable/Sugar.png")
-
-func _ready():
-	orderManager = get_parent().get_node("OrderManager")
 
 func _process(_delta):
 	match (currState):
@@ -47,17 +43,8 @@ func _process(_delta):
 	#keep checking if customer is satisfied
 	#only if order is fulfilled, state = LEAVING, customer walks out and is destroyed
 
-func interact():
-	match (currState):
-		CustomerState.NOT_ORDERED:
-			orderId = orderManager.generateOrder()
-			displayOrder(orderManager.getOrder(orderId))
-			currState = CustomerState.ORDER_TAKEN
-		CustomerState.ORDER_TAKEN:
-			print(orderManager.getOrder(orderId))
-			
-
-func displayOrder(order: Order):
+func displayOrder():
+	order = OrderManager.generateOrder()
 	baseTexture.visible = true
 	baseTexture.texture = getBaseTexture(order._base)
 	for i in range(order._ingredients.size()):
@@ -72,6 +59,10 @@ func displayOrder(order: Order):
 				item2_1.texture = getIngredientTexture(order._ingredients[i])
 			3:
 				item2_2.texture = getIngredientTexture(order._ingredients[i])
+	currState = CustomerState.ORDER_TAKEN
+
+func getOrder():
+	return order
 
 func getBaseTexture(base: String):
 	assert(base != null)

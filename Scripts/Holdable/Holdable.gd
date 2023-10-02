@@ -2,12 +2,14 @@ class_name Holdable extends Node2D
 
 var timer: Timer
 var processing_time: float = 5.0
+var order: Order
 
 func _ready():
 	init_timer()
 	# TODO: maybe use an @export on the placeable to set it from the scene
 	#if get_parent().is_in_group("Placeable"):
 	get_parent().set_item(self)
+	order = Order.new("", [])
 
 func pickup(hand):
 	if get_parent() is Machine:
@@ -27,6 +29,9 @@ func drop(hand, placeable):
 		self.global_position = placeable.botDrop.global_position
 	else:
 		self.global_position = placeable.global_position
+
+func asOrder():
+	return order
 
 ########################
 # Timer Functions
