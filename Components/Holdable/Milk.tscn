@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://du4o38tm721yu"]
+
+[ext_resource type="Texture2D" uid="uid://oso68n8eevid" path="res://Components/Holdable/Milk.png" id="1_aut65"]
+[ext_resource type="Script" path="res://Scripts/Holdable/Milk.gd" id="1_o51oe"]
+
+[node name="Milk" type="Sprite2D"]
+z_index = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_aut65")
+region_rect = Rect2(68, 102, 10, 9)
+script = ExtResource("1_o51oe")

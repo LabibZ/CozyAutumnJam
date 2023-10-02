@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ougl1rbsmstd"]
 
-[ext_resource type="Script" path="res://Scripts/Counter.gd" id="1_3pnak"]
+[ext_resource type="Script" path="res://Scripts/Counters/Counter.gd" id="1_3pnak"]
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="2_f5nkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3rsx"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://v5t3p8bn1p4s"]
+
+[ext_resource type="Script" path="res://Scripts/Holdable/CoffeeCup.gd" id="1_k0hj5"]
+[ext_resource type="Texture2D" uid="uid://w62xxbn5g5kf" path="res://Components/Holdable/Cup/Coffee.png" id="1_w3ni8"]
+
+[node name="CoffeeCup" type="Sprite2D"]
+z_index = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_w3ni8")
+region_enabled = true
+region_rect = Rect2(18, 1, 12, 14)
+script = ExtResource("1_k0hj5")

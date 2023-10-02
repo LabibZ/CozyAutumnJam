@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w62xxbn5g5kf"
-path="res://.godot/imported/Coffee.png-628acb8886623bf501ec443855849add.ctex"
+uid="uid://rho54ydqpkpa"
+path="res://.godot/imported/SugarCounter.png-bfa04a390008637c0cc311a752c5543b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Components/Holdable/Coffee.png"
-dest_files=["res://.godot/imported/Coffee.png-628acb8886623bf501ec443855849add.ctex"]
+source_file="res://Map/SugarCounter.png"
+dest_files=["res://.godot/imported/SugarCounter.png-bfa04a390008637c0cc311a752c5543b.ctex"]
 
 [params]
 

@@ -7,15 +7,17 @@ var order: Order
 func _ready():
 	init_timer()
 	# TODO: maybe use an @export on the placeable to set it from the scene
-	#if get_parent().is_in_group("Placeable"):
-	get_parent().set_item(self)
+	# if get_parent().is_in_group("Placeable"):
+	if get_parent() is Machine or get_parent() is Counter: # TODO errpr check spageti code
+		get_parent().set_item(self)
 	order = Order.new("", [])
 
 func pickup(hand):
 	if get_parent() is Machine:
 		get_parent().reset_machine()
 	
-	get_parent().remove_child(self)
+	if get_parent():
+		get_parent().remove_child(self)
 	hand.add_child(self)
 	self.position = hand.position
 	stop_timer()

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqb1b4om7f6vj"]
+
+[ext_resource type="Texture2D" uid="uid://bfk81g60qegr6" path="res://Components/Holdable/Sugar.png" id="1_2mmpx"]
+[ext_resource type="Script" path="res://Scripts/Holdable/Sugar.gd" id="2_yfh8d"]
+
+[node name="Sugar" type="Sprite2D"]
+z_index = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_2mmpx")
+region_rect = Rect2(68, 102, 10, 9)
+script = ExtResource("2_yfh8d")

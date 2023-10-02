@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=25 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_iisr0"]
@@ -6,13 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://crdwx4v11tsxm" path="res://Map/TopDownHouse_FurnitureState1.png" id="2_7jfqy"]
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="4_bbu3u"]
 [ext_resource type="PackedScene" uid="uid://kjhwbmhge5hu" path="res://Components/Machines/BoilingStation.tscn" id="7_fe1l4"]
-[ext_resource type="PackedScene" uid="uid://okc31jgyc6sc" path="res://Components/Holdable/Cup.tscn" id="7_qnfwo"]
-[ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counter.tscn" id="8_homoj"]
+[ext_resource type="PackedScene" uid="uid://bg7y5dhtb3fdx" path="res://Components/Holdable/Cup/TeaCup.tscn" id="7_nyeb7"]
+[ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counters/Counter.tscn" id="8_homoj"]
 [ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/Holdable/BoilingPot.tscn" id="8_ltwn4"]
-[ext_resource type="PackedScene" uid="uid://1ntap7dr3xlp" path="res://Components/Sink.tscn" id="9_n66vv"]
+[ext_resource type="PackedScene" uid="uid://1ntap7dr3xlp" path="res://Components/Machines/Sink.tscn" id="9_n66vv"]
+[ext_resource type="PackedScene" uid="uid://v5t3p8bn1p4s" path="res://Components/Holdable/Cup/CoffeeCup.tscn" id="9_sr77p"]
 [ext_resource type="PackedScene" uid="uid://pvp8mr4n2k0t" path="res://Components/Customer.tscn" id="10_xr1xy"]
 [ext_resource type="Script" path="res://Scripts/OrderManager.gd" id="12_lma4q"]
-[ext_resource type="PackedScene" uid="uid://cmk1uyknd0k7x" path="res://Components/Table.tscn" id="13_ncgif"]
+[ext_resource type="PackedScene" uid="uid://cmk1uyknd0k7x" path="res://Components/Counters/Table.tscn" id="13_ncgif"]
+[ext_resource type="PackedScene" uid="uid://s4kmj2rqsjfh" path="res://Components/Counters/MilkCounter.tscn" id="15_76xyj"]
+[ext_resource type="PackedScene" uid="uid://cx0ejxw81myud" path="res://Components/Counters/SugarCounter.tscn" id="16_cscdf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
 texture = ExtResource("2")
@@ -450,7 +453,7 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(327681, 327681, 5, 327682, 393217, 5, 327683, 458753, 5, 327684, 393217, 5, 327685, 458753, 5, 327686, 393217, 5, 327687, 458753, 5, 327688, 393217, 5, 327689, 458753, 5, 327690, 393217, 5, 327691, 458753, 5, 327692, 393217, 5, 327693, 458753, 5, 327694, 393217, 5, 327695, 458753, 5, 327696, 393217, 5, 327697, 458753, 5, 327698, 524289, 5, 393234, 524289, 6, 458770, 524289, 6, 524306, 524289, 6, 589842, 524289, 6, 655378, 524289, 6, 720914, 524289, 6, 786450, 524289, 6, 851986, 524289, 7, 851984, 393217, 7, 851985, 458753, 7, 851982, 393217, 7, 851983, 458753, 7, 851980, 393217, 7, 851981, 458753, 7, 851978, 393217, 7, 851979, 458753, 7, 851976, 393217, 7, 851977, 458753, 7, 851974, 393217, 7, 851975, 458753, 7, 851972, 393217, 7, 851973, 458753, 7, 851970, 393217, 7, 851971, 458753, 7, 851969, 327681, 7, 786433, 327681, 6, 720897, 327681, 6, 655361, 327681, 6, 589825, 327681, 6, 524289, 327681, 6, 458753, 327681, 6, 393217, 327681, 6, 655369, 393217, 6, 589833, 393217, 6, 524297, 393217, 6, 458761, 393217, 6, 393225, 393217, 6, 393224, 458753, 6, 393223, 393217, 6, 393222, 458753, 6, 393221, 393217, 6, 393220, 458753, 6, 393219, 393217, 6, 393218, 458753, 6, 458754, 458753, 6, 524290, 458753, 6, 589826, 458753, 6, 655362, 458753, 6, 720898, 458753, 6, 786434, 458753, 6, 786435, 393217, 6, 720899, 393217, 6, 655363, 393217, 6, 589827, 393217, 6, 524291, 393217, 6, 458755, 393217, 6, 458756, 458753, 6, 524292, 458753, 6, 589828, 458753, 6, 655364, 458753, 6, 720900, 458753, 6, 786436, 458753, 6, 786437, 393217, 6, 720901, 393217, 6, 655365, 393217, 6, 589829, 393217, 6, 524293, 393217, 6, 458757, 393217, 6, 458758, 458753, 6, 524294, 458753, 6, 589830, 458753, 6, 655366, 458753, 6, 720902, 458753, 6, 786438, 458753, 6, 786439, 393217, 6, 720903, 393217, 6, 655367, 393217, 6, 589831, 393217, 6, 524295, 393217, 6, 458759, 393217, 6, 458760, 458753, 6, 524296, 458753, 6, 589832, 458753, 6, 655368, 458753, 6, 720904, 458753, 6, 786440, 458753, 6, 786441, 393217, 6, 720905, 393217, 6, 720906, 458753, 6, 655370, 458753, 6, 589834, 458753, 6, 524298, 458753, 6, 458762, 458753, 6, 393226, 458753, 6, 393227, 393217, 6, 458763, 393217, 6, 524299, 393217, 6, 589835, 393217, 6, 655371, 393217, 6, 720907, 393217, 6, 786443, 393217, 6, 786442, 458753, 6, 786444, 458753, 6, 720908, 458753, 6, 655372, 458753, 6, 589836, 458753, 6, 524300, 458753, 6, 458764, 458753, 6, 393228, 458753, 6, 393229, 393217, 6, 458765, 393217, 6, 524301, 393217, 6, 589837, 393217, 6, 655373, 393217, 6, 720909, 393217, 6, 786445, 393217, 6, 786446, 458753, 6, 720910, 458753, 6, 655374, 458753, 6, 589838, 458753, 6, 524302, 458753, 6, 458766, 458753, 6, 393230, 458753, 6, 393231, 393217, 6, 458767, 393217, 6, 524303, 393217, 6, 589839, 393217, 6, 655375, 393217, 6, 720911, 393217, 6, 786447, 393217, 6, 786448, 458753, 6, 720912, 458753, 6, 655376, 458753, 6, 589840, 458753, 6, 524304, 458753, 6, 458768, 458753, 6, 393232, 458753, 6, 393233, 393217, 6, 458769, 393217, 6, 524305, 393217, 6, 589841, 393217, 6, 655377, 393217, 6, 720913, 393217, 6, 786449, 393217, 6)
 
 [node name="Player" parent="." instance=ExtResource("1")]
-position = Vector2(72, 192)
+position = Vector2(112, 192)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
@@ -474,7 +477,7 @@ shape = SubResource("RectangleShape2D_3rrxw")
 [node name="Counter" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 136)
 
-[node name="Cup" parent="Counter" instance=ExtResource("7_qnfwo")]
+[node name="TeaCup" parent="Counter" instance=ExtResource("7_nyeb7")]
 
 [node name="Counter2" parent="." node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
 position = Vector2(216, 104)
@@ -482,17 +485,13 @@ item = NodePath("BoilingPot")
 
 [node name="BoilingPot" parent="Counter2" instance=ExtResource("8_ltwn4")]
 
-[node name="Counter3" parent="." node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
+[node name="Counter3" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 168)
-item = NodePath("Cup")
 
-[node name="Cup" parent="Counter3" instance=ExtResource("7_qnfwo")]
+[node name="CoffeeCup" parent="Counter3" instance=ExtResource("9_sr77p")]
 
-[node name="Counter4" parent="." node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
+[node name="Counter4" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 152)
-item = NodePath("../Counter3/Cup")
-
-[node name="Cup" parent="Counter4" instance=ExtResource("7_qnfwo")]
 
 [node name="BoilingStation" parent="." instance=ExtResource("7_fe1l4")]
 position = Vector2(216, 200)
@@ -522,3 +521,9 @@ position = Vector2(72, 96)
 
 [node name="Table2" parent="Tables" instance=ExtResource("13_ncgif")]
 position = Vector2(152, 96)
+
+[node name="MilkCounter" parent="." instance=ExtResource("15_76xyj")]
+position = Vector2(160, 200)
+
+[node name="SugarCounter" parent="." instance=ExtResource("16_cscdf")]
+position = Vector2(48, 200)

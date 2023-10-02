@@ -2,8 +2,8 @@ extends Node2D
 
 const BASE = ["Tea", "Coffee"]
 const INGREDIENTS = ["Sugar", "Milk"]
-const MAX_SUGAR = 0
-const MAX_MILK = 0
+const MAX_SUGAR = 2
+const MAX_MILK = 2
 
 func generateOrder():
 	var base = randi()%BASE.size()

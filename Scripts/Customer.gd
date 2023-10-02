@@ -21,8 +21,8 @@ const SPEED = 80
 var destination: Vector2
 var order: Order
 var currState = CustomerState.ARRIVING
-var CoffeeTexture = load("res://Components/Holdable/Coffee.png")
-var TeaTexture = load("res://Components/Holdable/Cup.tres")
+var CoffeeTexture = load("res://Components/Holdable/Cup/CoffeeCup.png")
+var TeaTexture = load("res://Components/Holdable/Cup/TeaCup.tres")
 var MilkTexture = load("res://Components/Holdable/Milk.png")
 var SugarTexture = load("res://Components/Holdable/Sugar.png")
 
