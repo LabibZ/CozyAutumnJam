@@ -63,6 +63,10 @@ func handle_item_interaction(currInteraction):
 			if held_item.current_state == BoilingPot.BoilingState.BOILED:
 				currInteraction.item.fill()
 				held_item.current_state = BoilingPot.BoilingState.EMPTY
+		elif currInteraction.item is Cup and held_item is Ingredient:
+			currInteraction.item.add(held_item.getIngredient())
+			held_item.queue_free()
+			held_item = null
 
 # Handle interactions when player is not holding an item
 func handle_noitem_interaction(currInteraction):

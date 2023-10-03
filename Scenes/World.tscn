@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bg7y5dhtb3fdx" path="res://Components/Holdable/Cup/TeaCup.tscn" id="7_nyeb7"]
 [ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counters/Counter.tscn" id="8_homoj"]
 [ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/Holdable/BoilingPot.tscn" id="8_ltwn4"]
-[ext_resource type="PackedScene" uid="uid://1ntap7dr3xlp" path="res://Components/Machines/Sink.tscn" id="9_n66vv"]
+[ext_resource type="PackedScene" path="res://Components/Machines/Sink.tscn" id="9_n66vv"]
 [ext_resource type="PackedScene" uid="uid://v5t3p8bn1p4s" path="res://Components/Holdable/Cup/CoffeeCup.tscn" id="9_sr77p"]
 [ext_resource type="PackedScene" uid="uid://pvp8mr4n2k0t" path="res://Components/Customer.tscn" id="10_xr1xy"]
 [ext_resource type="Script" path="res://Scripts/OrderManager.gd" id="12_lma4q"]

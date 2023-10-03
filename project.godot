@@ -29,6 +29,7 @@ window/stretch/mode="viewport"
 
 [gui]
 
+theme/custom_font="res://Assets/Pixelify_Sans/static/PixelifySans-Regular.ttf"
 common/drop_mouse_on_gui_input_disabled=true
 
 [importer_defaults]

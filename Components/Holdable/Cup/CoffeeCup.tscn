@@ -10,3 +10,58 @@ texture = ExtResource("1_w3ni8")
 region_enabled = true
 region_rect = Rect2(18, 1, 12, 14)
 script = ExtResource("1_k0hj5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Base" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="item1_1" type="TextureRect" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+
+[node name="item1_2" type="TextureRect" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="item2_1" type="TextureRect" parent="HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+flip_v = true
+
+[node name="item2_2" type="TextureRect" parent="HBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+flip_v = true
