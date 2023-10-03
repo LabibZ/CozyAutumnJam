@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_iisr0"]
 [ext_resource type="Texture2D" uid="uid://dhwf11jbb4ix5" path="res://Map/TopDownHouse_FloorsAndWalls.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://crdwx4v11tsxm" path="res://Map/TopDownHouse_FurnitureState1.png" id="2_7jfqy"]
-[ext_resource type="Script" path="res://CustomerManager.gd" id="3_o2gb3"]
+[ext_resource type="Script" path="res://Scripts/CustomerManager.gd" id="2_dmpne"]
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="4_bbu3u"]
 [ext_resource type="PackedScene" uid="uid://kjhwbmhge5hu" path="res://Components/Machines/BoilingStation.tscn" id="7_fe1l4"]
 [ext_resource type="PackedScene" uid="uid://bg7y5dhtb3fdx" path="res://Components/Holdable/Cup/TeaCup.tscn" id="7_nyeb7"]
@@ -440,7 +440,7 @@ script = ExtResource("1_iisr0")
 
 [node name="CustomerManager" type="Node2D" parent="."]
 position = Vector2(96, 224)
-script = ExtResource("3_o2gb3")
+script = ExtResource("2_dmpne")
 
 [node name="levelTimer" type="Label" parent="."]
 offset_left = 24.0

@@ -19,8 +19,8 @@ enum CustomerState {
 const SPEED = 80
 
 var destination: Vector2
-var order: Order
-var table: Table
+var order: Order = null
+var table: Table = null
 var currState = CustomerState.ARRIVING
 var CoffeeTexture = load("res://Components/Holdable/Cup/CoffeeCup.png")
 var TeaTexture = load("res://Components/Holdable/Cup/TeaCup.tres")
@@ -28,19 +28,7 @@ var MilkTexture = load("res://Components/Holdable/Milk.png")
 var SugarTexture = load("res://Components/Holdable/Sugar.png")
 
 func _process(_delta):
-	match (currState):
-		CustomerState.ARRIVING:
-			if (destination):
-				if (get_position() == destination):
-					currState = CustomerState.NOT_ORDERED
-				else:
-					position = position.move_toward(destination, _delta * SPEED)
-			else:
-				for node in get_tree().current_scene.get_node("Tables").get_children():
-					var chairPos = node.seatCustomer(self)
-					if (chairPos != null):
-						destination = chairPos
-						break
+	pass
 	#once character takes their order, state = ORDER_TAKEN
 	#keep checking if customer is satisfied
 	#only if order is fulfilled, state = LEAVING, customer walks out and is destroyed

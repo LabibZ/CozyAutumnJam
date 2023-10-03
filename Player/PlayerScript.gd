@@ -72,8 +72,7 @@ func handle_noitem_interaction(currInteraction):
 		held_item = currInteraction.item
 		held_item.pickup(hand)
 		currInteraction.item = null
-	if currInteraction.is_in_group("Dispenser"):
-		print(currInteraction.item)
+	elif currInteraction.is_in_group("Dispenser"):
 		held_item = currInteraction.item
 		held_item.pickup(hand)
 		currInteraction.item = null

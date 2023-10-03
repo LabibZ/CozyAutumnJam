@@ -17,6 +17,8 @@ var tableTimer: Timer
 
 func interact(item = null):
 	match current_state:
+		TableState.EMPTY_TABLE:
+			pass
 		TableState.ORDERS_NOT_TAKEN:
 			for chair in chairs:
 				if chair.isOccupied:
@@ -35,13 +37,11 @@ func checkOrders(item):
 				chairs[i].setOccupantCompleted()
 				return true
 
-func seatCustomer(customer):
-	if !isFull:
-		for chair in chairs:
-			if !chair.getIsOccupied():
-				chair.seat(customer)
-				return chair.get_global_position()
-		setFull()
+func seatCustomers(customers: Array[Customer]):
+	for i in range(customers.size()):
+		if chairs[i].getIsOccupied():
+			chairs[i].seat(customers[i])
+			customers[i].destination = chairs[i].global_position
 
 func removeCustomer(customer):
 	for chair in chairs:
