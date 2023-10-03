@@ -39,7 +39,7 @@ func checkOrders(item):
 
 func seatCustomers(customers: Array[Customer]):
 	for i in range(customers.size()):
-		if chairs[i].getIsOccupied():
+		if !chairs[i].getIsOccupied():
 			chairs[i].seat(customers[i])
 			customers[i].destination = chairs[i].global_position
 
