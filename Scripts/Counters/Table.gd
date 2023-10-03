@@ -15,7 +15,7 @@ var current_state: TableState = TableState.ORDERS_NOT_TAKEN # TODO: CHANGE LATER
 var isFull: bool = false
 var tableTimer: Timer
 
-func interact():
+func interact(item = null):
 	match current_state:
 		TableState.ORDERS_NOT_TAKEN:
 			for chair in chairs:
@@ -23,17 +23,17 @@ func interact():
 					chair.getOccupant().displayOrder()
 			current_state = TableState.ORDERS_TAKEN
 		TableState.ORDERS_TAKEN:
-			# find matching order and submit
-			checkOrders()
+			if (item):
+				if (checkOrders(item)):
+					return true
 
-func checkOrders():
+func checkOrders(item):
 	for i in range(chairs.size()):
 		if chairs[i].isOccupied:
-			# TODO: error check no item
 			if OrderManager.checkSameOrder(chairs[i].getOrder(), item.asOrder()) and !chairs[i].checkOccupantCompleted():
 				dropPoint = drops[i].global_position
 				chairs[i].setOccupantCompleted()
-				break
+				return true
 
 func seatCustomer(customer):
 	if !isFull:

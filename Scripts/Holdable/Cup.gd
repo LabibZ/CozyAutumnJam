@@ -17,7 +17,7 @@ func fill():
 
 func empty():
 	filled = false
-	
+
 func add(ingredient):
 	order._ingredients.append(ingredient)
 	
@@ -41,7 +41,5 @@ func getIngredientTexture(ingredient: String):
 		return SugarTexture
 	if ingredient == "Milk":
 		return MilkTexture
-
-	
 #func getIngredients():
 #	return contents

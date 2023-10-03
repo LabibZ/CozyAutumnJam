@@ -47,11 +47,9 @@ func handle_item_interaction(currInteraction):
 		
 	if !currInteraction.item: # drop item
 		if currInteraction is Table:
-			currInteraction.item = held_item # TEMP
-			currInteraction.interact()
-			held_item.drop(hand, currInteraction)
-			currInteraction.item = null # TEMP
-			held_item = null
+			if (currInteraction.interact(held_item)):
+				held_item.drop(hand, currInteraction)
+				held_item = null
 		else:
 			held_item.drop(hand, currInteraction)
 			held_item = null
