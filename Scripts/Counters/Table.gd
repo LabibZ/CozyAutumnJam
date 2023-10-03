@@ -41,7 +41,7 @@ func seatCustomer(customer):
 			if !chair.getIsOccupied():
 				chair.seat(customer)
 				return chair.get_global_position()
-	isFull = true
+		setFull()
 
 func removeCustomer(customer):
 	for chair in chairs:
@@ -49,3 +49,9 @@ func removeCustomer(customer):
 			chair.unseat()
 			isFull = false
 			break
+
+func setFull():
+	isFull = true
+
+func setEmpty():
+	isFull = false

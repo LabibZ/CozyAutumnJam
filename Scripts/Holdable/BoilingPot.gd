@@ -26,7 +26,7 @@ func _on_boiling_state_changed():
 		BoilingState.EMPTY:
 			processing_time = 2.0
 		BoilingState.FILLED:
-			processing_time = 5.0
+			processing_time = 2.0
 		BoilingState.BOILED:
 			processing_time = 0.0
 	timerBar.set_max(processing_time)

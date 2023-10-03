@@ -20,6 +20,7 @@ const SPEED = 80
 
 var destination: Vector2
 var order: Order
+var table: Table
 var currState = CustomerState.ARRIVING
 var CoffeeTexture = load("res://Components/Holdable/Cup/CoffeeCup.png")
 var TeaTexture = load("res://Components/Holdable/Cup/TeaCup.tres")
@@ -35,7 +36,7 @@ func _process(_delta):
 				else:
 					position = position.move_toward(destination, _delta * SPEED)
 			else:
-				for node in get_parent().get_node("Tables").get_children():
+				for node in get_tree().current_scene.get_node("Tables").get_children():
 					var chairPos = node.seatCustomer(self)
 					if (chairPos != null):
 						destination = chairPos

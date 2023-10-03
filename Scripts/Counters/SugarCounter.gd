@@ -5,7 +5,7 @@ var sugar  = load("res://Components/Holdable/Sugar.tscn")
 func _ready():
 	add_to_group("Dispenser")
 
-func _process(delta):
+func _process(_delta):
 	if !item:
 		newItem()
 
