@@ -16,7 +16,10 @@ func checkOccupantCompleted() -> bool:
 	return occupant.currState == Customer.CustomerState.ORDER_COMPLETE
 
 func setOccupantCompleted() -> void:
-	occupant.currState = Customer.CustomerState.ORDER_COMPLETE
+	occupant.completeOrder()
+	
+func setOccupantLeaving() -> void:
+	occupant.leave()
 
 func seat(customer: Customer) -> void:
 	occupant = customer

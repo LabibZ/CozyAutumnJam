@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://blxtmuxln8hqv"]
+
+[ext_resource type="Script" path="res://Scripts/Counters/CoffeeCupCounter.gd" id="1_823a3"]
+[ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="2_8maxq"]
+[ext_resource type="Texture2D" uid="uid://w62xxbn5g5kf" path="res://Components/Holdable/Cup/Coffee.png" id="3_kv7of"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wh0u"]
+radius = 8.0
+height = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xqh5"]
+size = Vector2(16, 16)
+
+[node name="CoffeeCupCounter" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_823a3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8maxq")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_kv7of")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_5wh0u")
+
+[node name="Collider" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
+shape = SubResource("RectangleShape2D_8xqh5")

@@ -42,18 +42,26 @@ func execute_interaction(currInteraction):
 
 # Handle interactions when player is holding item
 func handle_item_interaction(currInteraction):
-	if !currInteraction.is_in_group("Placeable"):
+	if !currInteraction.is_in_group("Placeable") and not currInteraction is Trash:
 		return
 		
-	if !currInteraction.item: # drop item
-		if currInteraction is Table:
-			if (currInteraction.interact(held_item)):
-				held_item.drop(hand, currInteraction)
-				held_item = null
+	if currInteraction is Trash:
+		if held_item is CoffeeCup or held_item is TeaCup:
+			held_item.empty()
 		else:
+			held_item.queue_free()
+			held_item = null
+		return
+	elif currInteraction is Table:
+		if currInteraction.interact(held_item):
 			held_item.drop(hand, currInteraction)
 			held_item = null
-			currInteraction.interact()
+		return
+	
+	if !currInteraction.item: # drop item
+		held_item.drop(hand, currInteraction)
+		held_item = null
+		currInteraction.interact()
 	else:
 		# item interactions
 		# for now, manually do them, but add a helper function later

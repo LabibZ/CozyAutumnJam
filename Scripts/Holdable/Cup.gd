@@ -13,7 +13,6 @@ var SugarTexture = load("res://Components/Holdable/Sugar.png")
 
 func fill():
 	filled = true
-	order._base = "Tea"
 
 func empty():
 	filled = false
@@ -34,6 +33,17 @@ func add(ingredient):
 			3:
 				item2_2.texture = getIngredientTexture(order._ingredients[i])
 	print("Added " + ingredient)
+	
+func dump():
+	order._base = ""
+	for ingredient in order._ingredients:
+		order._ingredients.clear()
+	item1_1.texture = null
+	item1_2.texture = null
+	item2_1.texture = null
+	item2_2.texture = null
+	VBox1.visible = false
+	VBox2.visible = false
 	
 func getIngredientTexture(ingredient: String):
 	assert(ingredient != null)

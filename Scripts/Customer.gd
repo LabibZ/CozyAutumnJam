@@ -7,6 +7,7 @@ class_name Customer extends Interactable
 @onready var item1_2 = $Control/HBoxContainer/HBoxContainer/VBoxContainer/item1_2
 @onready var item2_1 = $Control/HBoxContainer/HBoxContainer/VBoxContainer2/item2_1
 @onready var item2_2 = $Control/HBoxContainer/HBoxContainer/VBoxContainer2/item2_2
+@onready var customerManager: CustomerManager = get_tree().current_scene.get_node("CustomerManager")
 
 enum CustomerState {
 	ARRIVING, 
@@ -27,8 +28,18 @@ var TeaTexture = load("res://Components/Holdable/Cup/TeaCup.tres")
 var MilkTexture = load("res://Components/Holdable/Milk.png")
 var SugarTexture = load("res://Components/Holdable/Sugar.png")
 
-func _process(_delta):
-	pass
+func _process(delta):
+	match currState:
+		CustomerState.ARRIVING:
+			if destination:
+				if get_position() == destination:
+					currState = CustomerState.NOT_ORDERED
+				else:
+					position = position.move_toward(destination, delta * SPEED)
+		CustomerState.LEAVING:
+			position = position.move_toward(destination, delta * SPEED)
+			if get_position() == destination:
+				queue_free()
 	#once character takes their order, state = ORDER_TAKEN
 	#keep checking if customer is satisfied
 	#only if order is fulfilled, state = LEAVING, customer walks out and is destroyed
@@ -50,6 +61,22 @@ func displayOrder():
 			3:
 				item2_2.texture = getIngredientTexture(order._ingredients[i])
 	currState = CustomerState.ORDER_TAKEN
+
+func completeOrder():
+	baseTexture.texture = null
+	item1_1.texture = null
+	item1_2.texture = null
+	item2_1.texture = null
+	item2_2.texture = null
+	baseTexture.visible = false
+	VBox1.visible = false
+	VBox2.visible = false
+	currState = CustomerState.ORDER_COMPLETE
+
+func leave():
+	currState = CustomerState.LEAVING
+	destination = customerManager.global_position
+	customerManager.customerSize -= 1
 
 func getOrder():
 	return order

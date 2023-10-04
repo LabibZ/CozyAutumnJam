@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=26 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_iisr0"]
@@ -7,14 +7,16 @@
 [ext_resource type="Script" path="res://Scripts/CustomerManager.gd" id="2_dmpne"]
 [ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="4_bbu3u"]
 [ext_resource type="PackedScene" uid="uid://kjhwbmhge5hu" path="res://Components/Machines/BoilingStation.tscn" id="7_fe1l4"]
-[ext_resource type="PackedScene" uid="uid://bg7y5dhtb3fdx" path="res://Components/Holdable/Cup/TeaCup.tscn" id="7_nyeb7"]
 [ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counters/Counter.tscn" id="8_homoj"]
 [ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/Holdable/BoilingPot.tscn" id="8_ltwn4"]
 [ext_resource type="PackedScene" uid="uid://1ntap7dr3xlp" path="res://Components/Machines/Sink.tscn" id="9_n66vv"]
-[ext_resource type="PackedScene" uid="uid://v5t3p8bn1p4s" path="res://Components/Holdable/Cup/CoffeeCup.tscn" id="9_sr77p"]
 [ext_resource type="PackedScene" uid="uid://cmk1uyknd0k7x" path="res://Components/Counters/Table.tscn" id="13_ncgif"]
 [ext_resource type="PackedScene" uid="uid://s4kmj2rqsjfh" path="res://Components/Counters/MilkCounter.tscn" id="15_76xyj"]
 [ext_resource type="PackedScene" uid="uid://cx0ejxw81myud" path="res://Components/Counters/SugarCounter.tscn" id="16_cscdf"]
+[ext_resource type="PackedScene" uid="uid://blxtmuxln8hqv" path="res://Components/Counters/CoffeeCupCounter.tscn" id="16_ecrac"]
+[ext_resource type="PackedScene" uid="uid://bchqvmba4kivt" path="res://Components/Machines/CoffeeMachine.tscn" id="16_o0pse"]
+[ext_resource type="PackedScene" uid="uid://c6u1u13831qob" path="res://Components/Counters/TeaCupCounter.tscn" id="17_qqjhx"]
+[ext_resource type="PackedScene" uid="uid://dm4s7231d7lcq" path="res://Components/Counters/Trash.tscn" id="18_xk1mc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
 texture = ExtResource("2")
@@ -487,8 +489,6 @@ shape = SubResource("RectangleShape2D_3rrxw")
 [node name="Counter" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 136)
 
-[node name="TeaCup" parent="Counter" instance=ExtResource("7_nyeb7")]
-
 [node name="Counter2" parent="." node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
 position = Vector2(216, 104)
 item = NodePath("BoilingPot")
@@ -498,13 +498,14 @@ item = NodePath("BoilingPot")
 [node name="Counter3" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 168)
 
-[node name="CoffeeCup" parent="Counter3" instance=ExtResource("9_sr77p")]
-
 [node name="Counter4" parent="." instance=ExtResource("8_homoj")]
 position = Vector2(216, 152)
 
+[node name="Counter5" parent="." instance=ExtResource("8_homoj")]
+position = Vector2(216, 120)
+
 [node name="BoilingStation" parent="." instance=ExtResource("7_fe1l4")]
-position = Vector2(216, 200)
+position = Vector2(224, 208)
 
 [node name="Sink" parent="." instance=ExtResource("9_n66vv")]
 position = Vector2(248, 72)
@@ -518,9 +519,21 @@ position = Vector2(72, 96)
 position = Vector2(152, 96)
 
 [node name="MilkCounter" parent="." instance=ExtResource("15_76xyj")]
-position = Vector2(160, 200)
+position = Vector2(288, 144)
 
 [node name="SugarCounter" parent="." instance=ExtResource("16_cscdf")]
-position = Vector2(48, 200)
+position = Vector2(288, 160)
+
+[node name="CoffeeMachine" parent="." instance=ExtResource("16_o0pse")]
+position = Vector2(272, 208)
+
+[node name="CoffeeCupCounter" parent="." instance=ExtResource("16_ecrac")]
+position = Vector2(288, 104)
+
+[node name="TeaCupCounter" parent="." instance=ExtResource("17_qqjhx")]
+position = Vector2(288, 120)
+
+[node name="Trash" parent="." instance=ExtResource("18_xk1mc")]
+position = Vector2(288, 176)
 
 [connection signal="game_state_changed" from="." to="CustomerManager" method="_on_world_game_state_changed"]

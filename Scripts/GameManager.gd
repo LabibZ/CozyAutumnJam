@@ -9,7 +9,7 @@ enum GameState {
 
 var current_state: GameState = GameState.PREPARE
 var levelTimer: Timer
-var levelTotalTime: float = 60.0
+var levelTotalTime: float = 90.0
 var score: int = 0
 
 @onready var levelTimerText = $levelTimer

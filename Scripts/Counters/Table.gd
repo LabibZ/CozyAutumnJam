@@ -11,31 +11,44 @@ enum TableState {
 @onready var chairs: Array[Chair] = [$ChairLeft, $ChairRight, $ChairBot, $ChairTop]
 @onready var dropPoint: Vector2 = self.global_position
 
-var current_state: TableState = TableState.ORDERS_NOT_TAKEN # TODO: CHANGE LATER
+var current_state: TableState = TableState.EMPTY_TABLE
+var items: Array[Holdable] = []
 var isFull: bool = false
 var tableTimer: Timer
 
-func interact(item = null):
+func _ready():
+	super()
+
+func interact(held_item = null):
 	match current_state:
-		TableState.EMPTY_TABLE:
-			pass
 		TableState.ORDERS_NOT_TAKEN:
 			for chair in chairs:
 				if chair.isOccupied:
 					chair.getOccupant().displayOrder()
 			current_state = TableState.ORDERS_TAKEN
 		TableState.ORDERS_TAKEN:
-			if (item):
-				if (checkOrders(item)):
+			if held_item:
+				if checkOrders(held_item):
 					return true
 
-func checkOrders(item):
+func checkOrders(held_item):
 	for i in range(chairs.size()):
 		if chairs[i].isOccupied:
-			if OrderManager.checkSameOrder(chairs[i].getOrder(), item.asOrder()) and !chairs[i].checkOccupantCompleted():
+			if OrderManager.checkSameOrder(chairs[i].getOrder(), held_item.asOrder()) and !chairs[i].checkOccupantCompleted():
 				dropPoint = drops[i].global_position
 				chairs[i].setOccupantCompleted()
+				if checkAllOrders():
+					current_state = TableState.ORDERS_COMPLETE
+					set_item(held_item) # last element
+					removeCustomers()
 				return true
+
+func checkAllOrders():
+	for chair in chairs:
+		if chair.isOccupied:
+			if !chair.checkOccupantCompleted():
+				return false
+	return true
 
 func seatCustomers(customers: Array[Customer]):
 	for i in range(customers.size()):
@@ -43,12 +56,21 @@ func seatCustomers(customers: Array[Customer]):
 			chairs[i].seat(customers[i])
 			customers[i].destination = chairs[i].global_position
 
-func removeCustomer(customer):
+func removeCustomers():
 	for chair in chairs:
-		if chair.getOccupant() == customer:
+		if chair.isOccupied:
+			chair.setOccupantLeaving()
 			chair.unseat()
-			isFull = false
-			break
+	for it in items:
+		if is_instance_valid(it):
+			it.queue_free()
+			it = null
+	items.clear()
+	setEmpty()
+
+func set_item(object):
+	items.append(object)
+	print(items.size())
 
 func setFull():
 	isFull = true
