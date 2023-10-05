@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://l8qf2pwbwqyx"
+path="res://.godot/imported/Cafe Ambience.ogg-28a07cb9b4ef65e4ad5a4cb8d749ae59.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Effects/Cafe Ambience.ogg"
+dest_files=["res://.godot/imported/Cafe Ambience.ogg-28a07cb9b4ef65e4ad5a4cb8d749ae59.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

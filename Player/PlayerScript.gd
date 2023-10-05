@@ -8,6 +8,10 @@ var input_vector: Vector2 = Vector2.ZERO
 @onready var animationPlayer = $AnimationPlayer
 @onready var interactableFinder = $Direction/InteractableFinder
 @onready var hand = $Hand
+@onready var audioPlayer = $AudioStreamPlayer
+
+var blopSound = load("res://Assets/Sounds/Effects/Blop.ogg")
+var pourSound = load("res://Assets/Sounds/Effects/Pouring Tea.wav")
 
 func _physics_process(_delta):
 	move_player()
@@ -68,9 +72,11 @@ func handle_item_interaction(currInteraction):
 		if currInteraction.item is Cup and held_item is BoilingPot:
 			if held_item.current_state == BoilingPot.BoilingState.BOILED:
 				currInteraction.item.fill()
+				playSound(pourSound)
 				held_item.current_state = BoilingPot.BoilingState.EMPTY
 		elif currInteraction.item is Cup and held_item is Ingredient:
 			currInteraction.item.add(held_item.getIngredient())
+			playSound(blopSound)
 			held_item.queue_free()
 			held_item = null
 
@@ -97,3 +103,7 @@ func _on_interactable_finder_area_entered(area):
 
 func _on_interactable_finder_area_exited(area):
 	all_interactions.erase(area)
+
+func playSound(sound):
+	audioPlayer.stream = sound
+	audioPlayer.play()

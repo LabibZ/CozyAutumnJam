@@ -13,6 +13,9 @@ var levelTotalTime: float = 90.0
 var score: int = 0
 
 @onready var levelTimerText = $levelTimer
+@onready var ambience = $Ambience
+
+var cafeAmbience = load("res://Assets/Sounds/Effects/Cafe Ambience.ogg")
 
 signal game_state_changed(new_state)
 
@@ -37,6 +40,8 @@ func set_game_state(new_state):
 			pass
 		GameState.RUNNING:
 			RunGame()
+			ambience.stream = cafeAmbience
+			ambience.play()
 		GameState.PAUSED:
 			# Pause other gameplay mechanics
 			pass

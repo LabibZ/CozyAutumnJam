@@ -1,5 +1,7 @@
 class_name CustomerManager extends Node2D
 
+@onready var audioPlayer = $AudioStreamPlayer
+
 const SPAWN_INTERVAL: float = 2.0
 const MAX_CUSTOMERS = 2
 
@@ -9,6 +11,8 @@ var waitingCustomers = []
 var customerPrefab  = preload("res://Components/Customer.tscn")
 var spawnLowerBound: float
 var spawnUpperBound: float
+
+var arriveSound = load("res://Assets/Sounds/Effects/Store Bell.ogg")
 
 func _ready():
 	spawnTimer = Timer.new()
@@ -24,6 +28,8 @@ func _process(_delta):
 func trySpawnCustomers():
 	var arrivingCustomers: Array[Customer] = []
 	if (customerSize < MAX_CUSTOMERS):
+		audioPlayer.stream = arriveSound
+		audioPlayer.play()
 		for i in range(randi_range(spawnLowerBound, spawnUpperBound)):
 			if customerSize == MAX_CUSTOMERS:
 				break

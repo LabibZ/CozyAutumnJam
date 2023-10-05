@@ -445,6 +445,8 @@ script = ExtResource("1_iisr0")
 position = Vector2(96, 224)
 script = ExtResource("2_dmpne")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CustomerManager"]
+
 [node name="levelTimer" type="Label" parent="."]
 offset_left = 24.0
 offset_top = 16.0
@@ -537,9 +539,13 @@ position = Vector2(288, 120)
 [node name="Trash" parent="." instance=ExtResource("18_xk1mc")]
 position = Vector2(288, 176)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_fohtd")
 volume_db = -10.0
+autoplay = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
 autoplay = true
 
 [connection signal="game_state_changed" from="." to="CustomerManager" method="_on_world_game_state_changed"]

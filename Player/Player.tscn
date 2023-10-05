@@ -180,5 +180,7 @@ shape = SubResource("CapsuleShape2D_oct0n")
 z_index = 1
 position = Vector2(6, -6)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="area_entered" from="Direction/InteractableFinder" to="." method="_on_interactable_finder_area_entered"]
 [connection signal="area_exited" from="Direction/InteractableFinder" to="." method="_on_interactable_finder_area_exited"]
