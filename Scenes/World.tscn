@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=25 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_iisr0"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cmk1uyknd0k7x" path="res://Components/Counters/Table.tscn" id="13_ncgif"]
 [ext_resource type="PackedScene" uid="uid://s4kmj2rqsjfh" path="res://Components/Counters/MilkCounter.tscn" id="15_76xyj"]
 [ext_resource type="PackedScene" uid="uid://cx0ejxw81myud" path="res://Components/Counters/SugarCounter.tscn" id="16_cscdf"]
+[ext_resource type="AudioStream" uid="uid://cm8ai6q75megr" path="res://Assets/Sounds/Cute Bossa Nova.ogg" id="16_vcmjo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptt0"]
 texture = ExtResource("2")
@@ -522,5 +523,10 @@ position = Vector2(160, 200)
 
 [node name="SugarCounter" parent="." instance=ExtResource("16_cscdf")]
 position = Vector2(48, 200)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_vcmjo")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="game_state_changed" from="." to="CustomerManager" method="_on_world_game_state_changed"]

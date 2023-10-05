@@ -60,6 +60,8 @@ func handle_item_interaction(currInteraction):
 		if currInteraction.item is Cup and held_item is BoilingPot:
 			if held_item.current_state == BoilingPot.BoilingState.BOILED:
 				currInteraction.item.fill()
+				held_item.current_state = BoilingPot.BoilingState.EMPTYING
+				held_item.emit_signal("boiling_state_changed")
 				held_item.current_state = BoilingPot.BoilingState.EMPTY
 		elif currInteraction.item is Cup and held_item is Ingredient:
 			currInteraction.item.add(held_item.getIngredient())

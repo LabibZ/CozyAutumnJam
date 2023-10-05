@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2gk70jtdx1yn"
+path="res://.godot/imported/Pouring Water.wav-13cc6f4178c1ae671fd08ca3c1cdbe1d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Effects/Pouring Water.wav"
+dest_files=["res://.godot/imported/Pouring Water.wav-13cc6f4178c1ae671fd08ca3c1cdbe1d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
