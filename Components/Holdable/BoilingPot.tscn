@@ -46,4 +46,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_apmfv")
 fill_mode = 1
 show_percentage = false
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="boiling_state_changed" from="." to="." method="_on_boiling_state_changed"]

@@ -67,3 +67,5 @@ position = Vector2(24, 8)
 
 [node name="ChairBot" parent="." instance=ExtResource("2_kmgd8")]
 position = Vector2(0, 24)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

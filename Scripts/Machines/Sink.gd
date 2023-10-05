@@ -2,6 +2,11 @@ class_name Sink extends Machine
 
 func _ready():
 	super()
+	
+func start_processing() -> void:
+	super()
+	item.current_state = BoilingPot.BoilingState.FILLING
+	item.emit_signal("boiling_state_changed")
 
 func check_requirements() -> bool:
 	if item is BoilingPot:
@@ -13,4 +18,4 @@ func check_requirements() -> bool:
 func processing_done():
 	super()
 	item.current_state = BoilingPot.BoilingState.FILLED
-	print("pot filled")
+	item.emit_signal("boiling_state_changed")
