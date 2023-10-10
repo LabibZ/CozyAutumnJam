@@ -1,15 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6u1u13831qob"]
+[gd_scene load_steps=4 format=3 uid="uid://c6u1u13831qob"]
 
 [ext_resource type="Script" path="res://Scripts/Counters/TeaCupCounter.gd" id="1_518hi"]
-[ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="2_vi1ck"]
-[ext_resource type="Texture2D" uid="uid://m3jpfrvedj7o" path="res://Map/TopDownHouse_SmallItems.png" id="3_rdve2"]
+[ext_resource type="Texture2D" uid="uid://5rxrxad84gsw" path="res://Assets/teacups.png" id="2_eoq8k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wh0u"]
 radius = 8.0
 height = 48.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xqh5"]
-size = Vector2(16, 16)
 
 [node name="TeaCupCounter" type="Area2D"]
 collision_layer = 256
@@ -17,20 +13,8 @@ collision_mask = 0
 script = ExtResource("1_518hi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_vi1ck")
-region_enabled = true
+texture = ExtResource("2_eoq8k")
 region_rect = Rect2(16, 0, 16, 16)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("3_rdve2")
-region_enabled = true
-region_rect = Rect2(68, 102, 10, 9)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5708
 shape = SubResource("CapsuleShape2D_5wh0u")
-
-[node name="Collider" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
-shape = SubResource("RectangleShape2D_8xqh5")

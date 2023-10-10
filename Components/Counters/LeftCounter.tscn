@@ -1,28 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm4s7231d7lcq"]
+[gd_scene load_steps=5 format=3 uid="uid://cfqv4l11ddkkb"]
 
-[ext_resource type="Script" path="res://Scripts/Counters/Trash.gd" id="1_g3l0k"]
-[ext_resource type="Texture2D" uid="uid://qmbifk6ix3ku" path="res://Assets/trash.png" id="2_dv4vp"]
+[ext_resource type="Script" path="res://Scripts/Counters/Counter.gd" id="1_p5qay"]
+[ext_resource type="Texture2D" uid="uid://btcsouljhhq7c" path="res://Assets/counters.png" id="2_q4d6g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3rsx"]
-size = Vector2(12, 12)
+size = Vector2(16, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1cqj"]
-radius = 6.0
+radius = 8.0
 height = 48.0
 
-[node name="Trash" type="Area2D"]
+[node name="Counter" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
-script = ExtResource("1_g3l0k")
+script = ExtResource("1_p5qay")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dv4vp")
-region_rect = Rect2(23.1702, 17.7883, 0.167511, 0)
+texture = ExtResource("2_q4d6g")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 16, 22)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_b3rsx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

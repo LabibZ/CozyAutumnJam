@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://1ntap7dr3xlp"]
 
 [ext_resource type="Script" path="res://Scripts/Machines/Sink.gd" id="1_c7cmu"]
-[ext_resource type="Texture2D" uid="uid://boxvuk2tas6p" path="res://Map/sink.png" id="2_3nmqx"]
+[ext_resource type="Texture2D" uid="uid://bwe184sqeyvty" path="res://Assets/sink.png" id="2_07awp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cp6oj"]
-radius = 16.0
+radius = 9.0
 height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7sn1"]
-size = Vector2(16, 16)
+size = Vector2(17, 16)
 
 [node name="Sink" type="Area2D"]
 collision_layer = 256
@@ -16,17 +16,17 @@ collision_mask = 0
 script = ExtResource("1_c7cmu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3nmqx")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
+texture = ExtResource("2_07awp")
+centered = false
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 17, 26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
-rotation = -1.5708
+position = Vector2(9, 26)
 shape = SubResource("CapsuleShape2D_cp6oj")
 
 [node name="Collider" type="StaticBody2D" parent="."]
+position = Vector2(9, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
-position = Vector2(0, 8)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_i7sn1")

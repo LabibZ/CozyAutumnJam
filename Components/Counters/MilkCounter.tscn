@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://s4kmj2rqsjfh"]
 
 [ext_resource type="Script" path="res://Scripts/Counters/MilkCounter.gd" id="1_k2ft3"]
-[ext_resource type="Texture2D" uid="uid://cyrdd5t1kdjun" path="res://Map/MilkCounter.png" id="2_jyuu3"]
+[ext_resource type="Texture2D" uid="uid://dh3q726460yah" path="res://Assets/fridge.png" id="2_3l1rq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wh0u"]
 radius = 8.0
-height = 48.0
+height = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xqh5"]
-size = Vector2(16, 16)
+size = Vector2(16, 32)
 
 [node name="MilkCounter" type="Area2D"]
 collision_layer = 256
@@ -16,13 +16,17 @@ collision_mask = 0
 script = ExtResource("1_k2ft3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jyuu3")
+position = Vector2(0, -1)
+texture = ExtResource("2_3l1rq")
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5708
+position = Vector2(8, 22)
 shape = SubResource("CapsuleShape2D_5wh0u")
 
 [node name="Collider" type="StaticBody2D" parent="."]
+position = Vector2(8, 17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_8xqh5")

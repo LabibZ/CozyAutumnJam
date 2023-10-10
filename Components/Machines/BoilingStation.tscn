@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://kjhwbmhge5hu"]
 
 [ext_resource type="Script" path="res://Scripts/Machines/BoilingStation.gd" id="1_5k5p6"]
-[ext_resource type="Texture2D" uid="uid://bsjkxaceu763f" path="res://Map/oldCounter.png" id="2_vytcn"]
+[ext_resource type="Texture2D" uid="uid://c2gavghpqu4ww" path="res://Assets/stove.png" id="2_qvfqh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53hci"]
-radius = 15.0
-height = 32.0
+radius = 8.0
+height = 54.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdpmk"]
-size = Vector2(16, 16)
+size = Vector2(16, 25)
 
 [node name="BoilingStation" type="Area2D"]
 collision_layer = 256
@@ -17,16 +17,16 @@ monitoring = false
 script = ExtResource("1_5k5p6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_vytcn")
+texture = ExtResource("2_qvfqh")
 region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 16, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
-rotation = -1.5708
 shape = SubResource("CapsuleShape2D_53hci")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_rdpmk")
