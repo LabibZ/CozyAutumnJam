@@ -6,6 +6,8 @@ var held_item: Holdable = null
 var input_vector: Vector2 = Vector2.ZERO
 
 @onready var animationPlayer = $AnimationPlayer
+@onready var animationTree = $AnimationTree
+@onready var animationState = animationTree.get("parameters/playback")
 @onready var interactableFinder = $Direction/InteractableFinder
 @onready var hand = $Hand
 @onready var audioPlayer = $AudioStreamPlayer
@@ -28,10 +30,12 @@ func move_player():
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		animationPlayer.play("Run")
+		animationTree.set("parameters/Idle/blend_position", input_vector)
+		animationTree.set("parameters/Run/blend_position", input_vector)
+		animationState.travel("Run")
 		velocity = input_vector * SPEED
 	else:
-		animationPlayer.play("Idle")
+		animationState.travel("Idle")
 		velocity = Vector2.ZERO
 	
 	set_velocity(velocity)
