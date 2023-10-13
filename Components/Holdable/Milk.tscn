@@ -5,7 +5,9 @@
 
 [node name="Milk" type="Sprite2D"]
 z_index = 2
+position = Vector2(0, -4.76837e-07)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_aut65")
+offset = Vector2(0, -7.5)
 region_rect = Rect2(68, 102, 10, 9)
 script = ExtResource("1_o51oe")

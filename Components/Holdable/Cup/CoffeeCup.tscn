@@ -11,8 +11,10 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="CoffeeCup" type="Sprite2D"]
 z_index = 2
+position = Vector2(0, -1)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_w3ni8")
+offset = Vector2(0, -6.25)
 region_enabled = true
 region_rect = Rect2(18, 1, 12, 14)
 script = ExtResource("1_k0hj5")

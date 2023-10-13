@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cx0ejxw81myud"]
 
-[ext_resource type="Texture2D" uid="uid://rho54ydqpkpa" path="res://Map/SugarCounter.png" id="1_15sr7"]
+[ext_resource type="Texture2D" uid="uid://rho54ydqpkpa" path="res://oldMap/SugarCounter.png" id="1_15sr7"]
 [ext_resource type="Script" path="res://Scripts/Counters/SugarCounter.gd" id="1_fxbf5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wh0u"]

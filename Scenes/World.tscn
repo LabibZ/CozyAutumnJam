@@ -25,7 +25,7 @@ shadow_size = 4
 shadow_color = Color(0, 0.258824, 0.113725, 0.65098)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ltnf"]
-size = Vector2(48, 10)
+size = Vector2(48, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asyog"]
 size = Vector2(191, 46)
@@ -50,7 +50,6 @@ script = ExtResource("2_dmpne")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CustomerManager"]
 
 [node name="levelTimer" type="Label" parent="."]
-z_index = 10
 offset_left = 10.0
 offset_top = 6.0
 offset_right = 43.0
@@ -59,81 +58,69 @@ text = "0:00"
 label_settings = SubResource("LabelSettings_kwan2")
 
 [node name="Player" parent="." instance=ExtResource("1")]
-position = Vector2(112, 192)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(152, 128)
 
-[node name="Front Counters" type="Node" parent="."]
+[node name="Front Counters" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(136, 80)
 
 [node name="Counter" parent="Front Counters" instance=ExtResource("4_myho3")]
-position = Vector2(103, 86)
+position = Vector2(-32, 0)
 
 [node name="Counter2" parent="Front Counters" instance=ExtResource("8_homoj")]
-position = Vector2(119, 86)
+position = Vector2(-16, 0)
 
 [node name="Counter3" parent="Front Counters" instance=ExtResource("8_homoj")]
-position = Vector2(135, 86)
+position = Vector2(0, 0)
 
-[node name="Counter4" parent="Front Counters" instance=ExtResource("8_homoj")]
-position = Vector2(151, 86)
+[node name="CoffeeCupCounter" parent="Front Counters" instance=ExtResource("16_ecrac")]
+position = Vector2(16, 0)
 
-[node name="CollisionShape2D" parent="Front Counters/Counter4" index="1"]
-disabled = true
+[node name="TeaCupCounter" parent="Front Counters" instance=ExtResource("17_qqjhx")]
+position = Vector2(32, 0)
 
-[node name="CoffeeCupCounter" parent="Front Counters/Counter4" instance=ExtResource("16_ecrac")]
-position = Vector2(0, -11)
-
-[node name="Counter5" parent="Front Counters" instance=ExtResource("7_8n2q5")]
-position = Vector2(167, 86)
-
-[node name="CollisionShape2D" parent="Front Counters/Counter5" index="1"]
-disabled = true
-
-[node name="TeaCupCounter" parent="Front Counters/Counter5" instance=ExtResource("17_qqjhx")]
-position = Vector2(1, -10)
-
-[node name="Back Counters" type="Node" parent="."]
-
-[node name="Counter" parent="Back Counters" instance=ExtResource("4_myho3")]
-position = Vector2(87, 54)
-
-[node name="CollisionShape2D" parent="Back Counters/Counter" index="1"]
-disabled = true
-
-[node name="Counter2" parent="Back Counters" node_paths=PackedStringArray("item") instance=ExtResource("8_homoj")]
-position = Vector2(103, 54)
-item = NodePath("BoilingPot")
-
-[node name="BoilingPot" parent="Back Counters/Counter2" instance=ExtResource("8_ltwn4")]
-position = Vector2(0, -9)
-
-[node name="Counter3" parent="Back Counters" instance=ExtResource("8_homoj")]
-position = Vector2(119, 54)
-
-[node name="Counter4" parent="Back Counters" instance=ExtResource("8_homoj")]
-position = Vector2(151, 54)
-
-[node name="Counter5" parent="Back Counters" instance=ExtResource("7_8n2q5")]
-position = Vector2(167, 54)
+[node name="Back Counters" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 
 [node name="Sink" parent="Back Counters" instance=ExtResource("9_n66vv")]
-position = Vector2(127, 39)
+position = Vector2(136, 48)
+
+[node name="Counter2" parent="Back Counters" instance=ExtResource("8_homoj")]
+position = Vector2(104, 48)
+
+[node name="BoilingPot" parent="Back Counters/Counter2" instance=ExtResource("8_ltwn4")]
+
+[node name="Counter3" parent="Back Counters" instance=ExtResource("8_homoj")]
+position = Vector2(120, 48)
+
+[node name="Counter4" parent="Back Counters" instance=ExtResource("8_homoj")]
+position = Vector2(152, 48)
+
+[node name="Counter5" parent="Back Counters" instance=ExtResource("7_8n2q5")]
+position = Vector2(168, 48)
 
 [node name="Counter6" parent="Back Counters" instance=ExtResource("4_myho3")]
-position = Vector2(24, 54)
+position = Vector2(24, 48)
 
 [node name="CoffeeMachine" parent="Back Counters" instance=ExtResource("16_o0pse")]
-z_index = 1
-position = Vector2(81, 32)
+position = Vector2(88, 48)
 
 [node name="BoilingStation" parent="Back Counters" instance=ExtResource("7_fe1l4")]
-position = Vector2(40, 53)
+position = Vector2(40, 48)
 
 [node name="Trash" parent="Back Counters" instance=ExtResource("18_xk1mc")]
-position = Vector2(71, 53)
+position = Vector2(72, 48)
 
 [node name="MilkCounter" parent="Back Counters" instance=ExtResource("15_76xyj")]
-position = Vector2(48, 31)
+position = Vector2(56, 48)
 
-[node name="Tables" type="Node" parent="."]
+[node name="Tables" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 
 [node name="Table" parent="Tables" instance=ExtResource("13_ncgif")]
 position = Vector2(63, 161)
@@ -154,12 +141,13 @@ volume_db = -15.0
 autoplay = true
 
 [node name="Cozybg" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2.08165e-12, 2.08165e-12)
+y_sort_enabled = true
 texture = ExtResource("16_6amnq")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Donuts" type="Sprite2D" parent="Cozybg"]
+z_index = 1
 position = Vector2(16, 69)
 texture = ExtResource("19_vgp8c")
 centered = false
@@ -172,6 +160,7 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_0ltnf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Cozybg"]
+visible = false
 position = Vector2(1, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cozybg/StaticBody2D"]
@@ -191,7 +180,3 @@ position = Vector2(95, 206.5)
 shape = SubResource("RectangleShape2D_3rrxw")
 
 [connection signal="game_state_changed" from="." to="CustomerManager" method="_on_world_game_state_changed"]
-
-[editable path="Front Counters/Counter4"]
-[editable path="Front Counters/Counter5"]
-[editable path="Back Counters/Counter"]

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://68mmw3bso2ed"]
+
+[ext_resource type="Shader" path="res://Interact.gdshader" id="1_hcx8a"]
+
+[resource]
+shader = ExtResource("1_hcx8a")
+shader_parameter/tint_strength = 0.0

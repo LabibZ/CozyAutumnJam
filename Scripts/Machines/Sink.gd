@@ -1,5 +1,7 @@
 class_name Sink extends Machine
 
+@onready var dropPoint = $DropPoint.global_position
+
 func _ready():
 	super()
 	

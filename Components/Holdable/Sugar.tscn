@@ -5,7 +5,9 @@
 
 [node name="Sugar" type="Sprite2D"]
 z_index = 2
+position = Vector2(0, -4.76837e-07)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_2mmpx")
+offset = Vector2(0, -7.5)
 region_rect = Rect2(68, 102, 10, 9)
 script = ExtResource("2_yfh8d")

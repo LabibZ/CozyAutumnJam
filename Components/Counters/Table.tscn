@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmk1uyknd0k7x"]
 
 [ext_resource type="Script" path="res://Scripts/Counters/Table.gd" id="1_1irbl"]
-[ext_resource type="Texture2D" uid="uid://c77qt7slrj4gv" path="res://Map/Carpet.png" id="2_40aqe"]
+[ext_resource type="Texture2D" uid="uid://c77qt7slrj4gv" path="res://oldMap/Carpet.png" id="2_40aqe"]
 [ext_resource type="PackedScene" uid="uid://82ay21d2eij8" path="res://Components/Counters/Chair.tscn" id="2_kmgd8"]
-[ext_resource type="Texture2D" uid="uid://56hkcscnywk8" path="res://Map/Carpet2.png" id="3_j6ox2"]
-[ext_resource type="Texture2D" uid="uid://b2qp8hrdbumjr" path="res://Map/Table.png" id="3_tts88"]
+[ext_resource type="Texture2D" uid="uid://56hkcscnywk8" path="res://oldMap/Carpet2.png" id="3_j6ox2"]
+[ext_resource type="Texture2D" uid="uid://b2qp8hrdbumjr" path="res://oldMap/Table.png" id="3_tts88"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihqcq"]
 radius = 24.0
@@ -34,12 +34,12 @@ texture = ExtResource("3_j6ox2")
 [node name="ChairTop" parent="." instance=ExtResource("2_kmgd8")]
 position = Vector2(0, -8)
 
-[node name="TableSprite" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_tts88")
 
-[node name="Collider" type="StaticBody2D" parent="TableSprite"]
+[node name="Collider" type="StaticBody2D" parent="Sprite2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableSprite/Collider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Collider"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_y7i2o")
 

@@ -1,7 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://brh2njvhhn80s"]
 
 [ext_resource type="Script" path="res://Scripts/Holdable/BoilingPot.gd" id="1_7kdqi"]
-[ext_resource type="Texture2D" uid="uid://m3jpfrvedj7o" path="res://Map/TopDownHouse_SmallItems.png" id="2_2pt6y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1eat4"]
+load_path = "res://.godot/imported/TopDownHouse_SmallItems.png-0d4b01273f2dd7bd16ce0d5ebce6c5d4.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm7l0"]
 bg_color = Color(0, 0.65098, 0.74902, 1)
@@ -10,7 +12,9 @@ bg_color = Color(0, 0.65098, 0.74902, 1)
 bg_color = Color(0, 0, 0, 1)
 
 [node name="BoilingPot" type="Sprite2D"]
-texture = ExtResource("2_2pt6y")
+position = Vector2(0, -1)
+texture = SubResource("CompressedTexture2D_1eat4")
+offset = Vector2(0, -4)
 region_enabled = true
 region_rect = Rect2(112, 116, 16, 11)
 script = ExtResource("1_7kdqi")
@@ -47,5 +51,3 @@ fill_mode = 1
 show_percentage = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
-[connection signal="boiling_state_changed" from="." to="." method="_on_boiling_state_changed"]

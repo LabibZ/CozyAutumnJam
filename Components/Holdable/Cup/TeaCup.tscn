@@ -7,8 +7,10 @@ load_path = "res://.godot/imported/TopDownHouse_SmallItems.png-47228341c64172de9
 
 [node name="TeaCup" type="Sprite2D"]
 z_index = 2
+position = Vector2(-3.55271e-15, -1)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("CompressedTexture2D_y6ihn")
+offset = Vector2(4.47035e-08, -3.75)
 region_enabled = true
 region_rect = Rect2(68, 102, 10, 9)
 script = ExtResource("1_effg1")

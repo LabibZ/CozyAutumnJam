@@ -4,26 +4,27 @@
 [ext_resource type="Texture2D" uid="uid://qmbifk6ix3ku" path="res://Assets/trash.png" id="2_dv4vp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3rsx"]
-size = Vector2(12, 12)
+size = Vector2(12, 16)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1cqj"]
-radius = 6.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fi64"]
+size = Vector2(16, 16)
 
 [node name="Trash" type="Area2D"]
+position = Vector2(0, -16)
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("1_g3l0k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
 texture = ExtResource("2_dv4vp")
 region_rect = Rect2(23.1702, 17.7883, 0.167511, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_b3rsx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_v1cqj")
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_6fi64")

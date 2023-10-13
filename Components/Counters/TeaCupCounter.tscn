@@ -1,20 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6u1u13831qob"]
+[gd_scene load_steps=6 format=3 uid="uid://c6u1u13831qob"]
 
 [ext_resource type="Script" path="res://Scripts/Counters/TeaCupCounter.gd" id="1_518hi"]
+[ext_resource type="Texture2D" uid="uid://btcsouljhhq7c" path="res://Assets/counters.png" id="2_asrvj"]
 [ext_resource type="Texture2D" uid="uid://5rxrxad84gsw" path="res://Assets/teacups.png" id="2_eoq8k"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wh0u"]
-radius = 8.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl78e"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0niq1"]
+size = Vector2(16, 22)
 
 [node name="TeaCupCounter" type="Area2D"]
+position = Vector2(0, -16)
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("1_518hi")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+texture = ExtResource("2_asrvj")
+region_enabled = true
+region_rect = Rect2(48, 2.08165e-12, 16, 22)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_kl78e")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
 texture = ExtResource("2_eoq8k")
 region_rect = Rect2(16, 0, 16, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_5wh0u")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_0niq1")

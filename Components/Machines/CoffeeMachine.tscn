@@ -1,33 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://bchqvmba4kivt"]
+[gd_scene load_steps=6 format=3 uid="uid://bchqvmba4kivt"]
 
 [ext_resource type="Script" path="res://Scripts/Machines/CoffeeMachine.gd" id="1_jytkg"]
 [ext_resource type="Texture2D" uid="uid://bq6dwn4y4dlef" path="res://Assets/coffeemachine.png" id="2_ar111"]
+[ext_resource type="Texture2D" uid="uid://btcsouljhhq7c" path="res://Assets/counters.png" id="3_5c38c"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53hci"]
-radius = 7.0
-height = 40.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjeki"]
+size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdpmk"]
-size = Vector2(14, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmcbe"]
+size = Vector2(16, 24)
 
 [node name="CoffeeMachine" type="Area2D"]
+position = Vector2(0, -16)
 collision_layer = 256
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_jytkg")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+texture = ExtResource("3_5c38c")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 16, 22)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_tjeki")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7, -16)
 texture = ExtResource("2_ar111")
 centered = false
 region_rect = Rect2(2.08165e-12, 2.08165e-12, 14, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 21)
-shape = SubResource("CapsuleShape2D_53hci")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(7, 10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_rdpmk")
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_cmcbe")

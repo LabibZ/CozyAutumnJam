@@ -10,6 +10,7 @@ var current_state: MachineState = MachineState.IDLE
 var item: Node2D = null
 
 func _ready():
+	super()
 	add_to_group("Placeable")
 
 # Called by player

@@ -3,30 +3,29 @@
 [ext_resource type="Script" path="res://Scripts/Counters/MilkCounter.gd" id="1_k2ft3"]
 [ext_resource type="Texture2D" uid="uid://dh3q726460yah" path="res://Assets/fridge.png" id="2_3l1rq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wh0u"]
-radius = 8.0
-height = 60.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o48ne"]
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xqh5"]
-size = Vector2(16, 32)
+size = Vector2(16, 24)
 
 [node name="MilkCounter" type="Area2D"]
+position = Vector2(0, -16)
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("1_k2ft3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -1.5)
 texture = ExtResource("2_3l1rq")
-centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 22)
-shape = SubResource("CapsuleShape2D_5wh0u")
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_o48ne")
 
-[node name="Collider" type="StaticBody2D" parent="."]
-position = Vector2(8, 17)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
-position = Vector2(0, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_8xqh5")
