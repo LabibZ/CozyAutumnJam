@@ -26,6 +26,10 @@ func _ready():
 func _process(_delta):
 	timerBar.value = timer.time_left
 
+func changeState(state):
+	current_state = state
+	_on_boiling_state_changed()
+
 func _on_boiling_state_changed():
 	match current_state:
 		BoilingState.EMPTY:

@@ -9,14 +9,11 @@ func check_requirements() -> bool:
 
 func start_processing() -> void:
 	super()
-	item.current_state = BoilingPot.BoilingState.BOILING
-	item.emit_signal("boiling_state_changed")
+	item.changeState(BoilingPot.BoilingState.BOILING)
 	
 func processing_done():
 	super()
-	item.current_state = BoilingPot.BoilingState.BOILED
-	item.emit_signal("boiling_state_changed")
+	item.changeState(BoilingPot.BoilingState.BOILED)
 
 func reset_machine() -> void:
 	super()
-	item.emit_signal("boiling_state_changed")
