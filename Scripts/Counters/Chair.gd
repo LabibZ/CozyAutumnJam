@@ -15,6 +15,9 @@ func getOrder() -> Order:
 func checkOccupantCompleted() -> bool:
 	return occupant.currState == Customer.CustomerState.ORDER_COMPLETE
 
+func checkOccupantNotOrdered() -> bool:
+	return occupant.currState == Customer.CustomerState.NOT_ORDERED
+
 func setOccupantCompleted() -> void:
 	occupant.completeOrder()
 	

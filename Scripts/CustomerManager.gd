@@ -3,7 +3,7 @@ class_name CustomerManager extends Node2D
 @onready var audioPlayer = $AudioStreamPlayer
 
 const SPAWN_INTERVAL: float = 2.0
-const MAX_CUSTOMERS = 2
+const MAX_CUSTOMERS = 4
 
 var spawnTimer: Timer
 var customerSize: int = 0
@@ -47,10 +47,9 @@ func spawnCustomer(arrivingCustomers):
 func findEmptyTable(arrivingCustomers):
 	for table in get_tree().current_scene.get_node("Tables").get_children():
 		table = table as Table
-		if !table.isFull:
+		if !table.isFull and arrivingCustomers.size() <= table.chairs.size():
 			table.seatCustomers(arrivingCustomers)
 			table.setFull()
-			table.current_state = Table.TableState.ORDERS_NOT_TAKEN
 			return true
 	return false
 

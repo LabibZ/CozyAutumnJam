@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6uce84xyk5md"]
+
+[ext_resource type="Script" path="res://Scripts/Counters/Table.gd" id="1_ejmyn"]
+[ext_resource type="Texture2D" uid="uid://dwgquodfrf0su" path="res://Assets/tables.png" id="2_jk0pv"]
+[ext_resource type="PackedScene" uid="uid://c4emjjnmd0eea" path="res://Components/Table/StoolChair.tscn" id="3_ish87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grvr5"]
+size = Vector2(31, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7i2o"]
+size = Vector2(16, 16)
+
+[node name="TableLongTop" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_ejmyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, 0)
+shape = SubResource("RectangleShape2D_grvr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jk0pv")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="Collider" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Collider"]
+shape = SubResource("RectangleShape2D_y7i2o")
+
+[node name="Drops" type="Node2D" parent="."]
+
+[node name="LeftDrop" type="Marker2D" parent="Drops"]
+position = Vector2(-3, 1)
+
+[node name="Chairs" type="Node2D" parent="."]
+
+[node name="StoolChair" parent="Chairs" instance=ExtResource("3_ish87")]
+position = Vector2(-16, 6)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

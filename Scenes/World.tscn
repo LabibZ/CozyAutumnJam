@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=30 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_iisr0"]
@@ -9,16 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counters/Counter.tscn" id="8_homoj"]
 [ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/Holdable/BoilingPot.tscn" id="8_ltwn4"]
 [ext_resource type="PackedScene" uid="uid://1ntap7dr3xlp" path="res://Components/Machines/Sink.tscn" id="9_n66vv"]
-[ext_resource type="PackedScene" uid="uid://cmk1uyknd0k7x" path="res://Components/Counters/Table.tscn" id="13_ncgif"]
 [ext_resource type="PackedScene" uid="uid://s4kmj2rqsjfh" path="res://Components/Counters/MilkCounter.tscn" id="15_76xyj"]
+[ext_resource type="PackedScene" uid="uid://cmk1uyknd0k7x" path="res://Components/Table/TableFour.tscn" id="15_bjjyi"]
 [ext_resource type="Texture2D" uid="uid://dqnnref2svoks" path="res://Assets/cozybg.png" id="16_6amnq"]
 [ext_resource type="PackedScene" uid="uid://cx0ejxw81myud" path="res://Components/Counters/SugarCounter.tscn" id="16_cscdf"]
 [ext_resource type="PackedScene" uid="uid://blxtmuxln8hqv" path="res://Components/Counters/CoffeeCupCounter.tscn" id="16_ecrac"]
 [ext_resource type="PackedScene" uid="uid://bchqvmba4kivt" path="res://Components/Machines/CoffeeMachine.tscn" id="16_o0pse"]
+[ext_resource type="PackedScene" uid="uid://c28p8de30xran" path="res://Components/Table/TableTwo.tscn" id="16_uexef"]
+[ext_resource type="PackedScene" uid="uid://bqepjku6osc2n" path="res://Components/Table/TableLongBottom.tscn" id="17_hnsbr"]
 [ext_resource type="PackedScene" uid="uid://c6u1u13831qob" path="res://Components/Counters/TeaCupCounter.tscn" id="17_qqjhx"]
+[ext_resource type="PackedScene" uid="uid://bfgdrnlsypn82" path="res://Components/Table/TableLongMiddle.tscn" id="18_bb7bb"]
 [ext_resource type="AudioStream" uid="uid://cm8ai6q75megr" path="res://Assets/Sounds/Cute Bossa Nova.ogg" id="18_fohtd"]
 [ext_resource type="PackedScene" uid="uid://dm4s7231d7lcq" path="res://Components/Counters/Trash.tscn" id="18_xk1mc"]
 [ext_resource type="Texture2D" uid="uid://c322lmlnohwfr" path="res://Assets/donuts.png" id="19_vgp8c"]
+[ext_resource type="PackedScene" uid="uid://c6uce84xyk5md" path="res://Components/Table/TableLongTop.tscn" id="23_2ssd2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwan2"]
 shadow_size = 4
@@ -60,7 +64,7 @@ label_settings = SubResource("LabelSettings_kwan2")
 [node name="Player" parent="." instance=ExtResource("1")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(152, 128)
+position = Vector2(124, 128)
 
 [node name="Front Counters" type="Node2D" parent="."]
 z_index = 1
@@ -86,9 +90,6 @@ position = Vector2(32, 0)
 z_index = 1
 y_sort_enabled = true
 
-[node name="Sink" parent="Back Counters" instance=ExtResource("9_n66vv")]
-position = Vector2(136, 48)
-
 [node name="Counter2" parent="Back Counters" instance=ExtResource("8_homoj")]
 position = Vector2(104, 48)
 
@@ -99,6 +100,9 @@ position = Vector2(120, 48)
 
 [node name="Counter4" parent="Back Counters" instance=ExtResource("8_homoj")]
 position = Vector2(152, 48)
+
+[node name="Sink" parent="Back Counters" instance=ExtResource("9_n66vv")]
+position = Vector2(137, 48)
 
 [node name="Counter5" parent="Back Counters" instance=ExtResource("7_8n2q5")]
 position = Vector2(168, 48)
@@ -122,14 +126,28 @@ position = Vector2(56, 48)
 z_index = 1
 y_sort_enabled = true
 
-[node name="Table" parent="Tables" instance=ExtResource("13_ncgif")]
-position = Vector2(63, 161)
+[node name="TableLongBottom" parent="Tables" instance=ExtResource("17_hnsbr")]
+position = Vector2(169, 177)
 
-[node name="Table2" parent="Tables" instance=ExtResource("13_ncgif")]
-position = Vector2(63, 109)
+[node name="TableLongMiddle" parent="Tables" instance=ExtResource("18_bb7bb")]
+unique_name_in_owner = true
+position = Vector2(169, 156)
+
+[node name="TableLongMiddle2" parent="Tables" instance=ExtResource("18_bb7bb")]
+unique_name_in_owner = true
+position = Vector2(169, 140)
+
+[node name="TableLongTop" parent="Tables" instance=ExtResource("23_2ssd2")]
+position = Vector2(169, 124)
+
+[node name="TableFour" parent="Tables" instance=ExtResource("15_bjjyi")]
+position = Vector2(63, 144)
+
+[node name="TableTwo" parent="Tables" instance=ExtResource("16_uexef")]
+position = Vector2(63, 180)
 
 [node name="SugarCounter" parent="." instance=ExtResource("16_cscdf")]
-position = Vector2(288, 160)
+position = Vector2(24, 104)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_fohtd")

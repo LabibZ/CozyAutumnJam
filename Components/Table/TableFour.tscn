@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmk1uyknd0k7x"]
+
+[ext_resource type="Script" path="res://Scripts/Counters/Table.gd" id="1_ffuwb"]
+[ext_resource type="Texture2D" uid="uid://dwgquodfrf0su" path="res://Assets/tables.png" id="2_0aipy"]
+[ext_resource type="PackedScene" uid="uid://3yjpr336pnmd" path="res://Components/Table/LeftChair.tscn" id="3_vygwi"]
+[ext_resource type="PackedScene" uid="uid://cvkqe60m1n3gt" path="res://Components/Table/RightChair.tscn" id="4_2ftab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grvr5"]
+size = Vector2(38, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7i2o"]
+size = Vector2(38, 31)
+
+[node name="TableFour" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_ffuwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_grvr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0aipy")
+region_enabled = true
+region_rect = Rect2(13, 6, 38, 38)
+
+[node name="Collider" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Collider"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_y7i2o")
+
+[node name="Drops" type="Node2D" parent="."]
+
+[node name="LeftDrop" type="Marker2D" parent="Drops"]
+position = Vector2(-12, -10)
+
+[node name="RightDrop" type="Marker2D" parent="Drops"]
+position = Vector2(14, -10)
+
+[node name="LeftDrop2" type="Marker2D" parent="Drops"]
+position = Vector2(-12, 6)
+
+[node name="RightDrop2" type="Marker2D" parent="Drops"]
+position = Vector2(14, 6)
+
+[node name="Chairs" type="Node2D" parent="."]
+
+[node name="LeftChair" parent="Chairs" instance=ExtResource("3_vygwi")]
+position = Vector2(-26, -7)
+
+[node name="RightChair" parent="Chairs" instance=ExtResource("4_2ftab")]
+position = Vector2(26, -7)
+
+[node name="LeftChair2" parent="Chairs" instance=ExtResource("3_vygwi")]
+position = Vector2(-26, 9)
+
+[node name="RightChair2" parent="Chairs" instance=ExtResource("4_2ftab")]
+position = Vector2(26, 9)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

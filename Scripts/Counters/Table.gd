@@ -7,11 +7,11 @@ enum TableState {
 	ORDERS_COMPLETE
 }
 
-@onready var drops: Array[Marker2D] = [$LeftDrop, $RightDrop, $BotDrop, $TopDrop]
-@onready var chairs: Array[Chair] = [$ChairLeft, $ChairRight, $ChairBot, $ChairTop]
 @onready var dropPoint: Vector2 = self.global_position
 @onready var audioPlayer = $AudioStreamPlayer
 
+var drops: Array[Marker2D] = []
+var chairs: Array[Chair] = []
 var current_state: TableState = TableState.EMPTY_TABLE
 var items: Array[Holdable] = []
 var isFull: bool = false
@@ -21,6 +21,10 @@ var writingSounds = [load("res://Assets/Sounds/Effects/Writing1.wav"), load("res
 
 func _ready():
 	super()
+	for chair in $Chairs.get_children():
+		chairs.append(chair)
+	for drop in $Drops.get_children():
+		drops.append(drop)
 
 func interact(held_item = null):
 	match current_state:
@@ -42,13 +46,20 @@ func checkOrders(held_item):
 			if OrderManager.checkSameOrder(chairs[i].getOrder(), held_item.asOrder()) and !chairs[i].checkOccupantCompleted():
 				dropPoint = drops[i].global_position
 				chairs[i].setOccupantCompleted()
-				if checkAllOrders():
+				if checkAllOrdersCompleted():
 					current_state = TableState.ORDERS_COMPLETE
 					set_item(held_item) # last element
 					removeCustomers()
 				return true
 
-func checkAllOrders():
+func checkAllOrdersNotTaken():
+	for chair in chairs:
+		if chair.isOccupied:
+			if !chair.checkOccupantNotOrdered():
+				return false
+	return true
+
+func checkAllOrdersCompleted():
 	for chair in chairs:
 		if chair.isOccupied:
 			if !chair.checkOccupantCompleted():
@@ -59,9 +70,11 @@ func seatCustomers(customers: Array[Customer]):
 	for i in range(customers.size()):
 		if !chairs[i].getIsOccupied():
 			chairs[i].seat(customers[i])
+			customers[i].connect("customer_arrived", _on_customer_arrived)
 			customers[i].destination = chairs[i].global_position
 
 func removeCustomers():
+	await get_tree().create_timer(3.0).timeout
 	for chair in chairs:
 		if chair.isOccupied:
 			chair.setOccupantLeaving()
@@ -82,3 +95,7 @@ func setFull():
 
 func setEmpty():
 	isFull = false
+
+func _on_customer_arrived():
+	if checkAllOrdersNotTaken():
+		current_state = TableState.ORDERS_NOT_TAKEN

@@ -13,11 +13,12 @@ enum CustomerState {
 	ARRIVING, 
 	NOT_ORDERED, 
 	ORDER_TAKEN,
-	ORDER_COMPLETE, 
+	ORDER_COMPLETE,
 	LEAVING
 }
 
 const SPEED = 80
+signal customer_arrived
 
 var destination: Vector2
 var order: Order = null
@@ -34,6 +35,7 @@ func _process(delta):
 			if destination:
 				if get_position() == destination:
 					currState = CustomerState.NOT_ORDERED
+					customer_arrived.emit()
 				else:
 					position = position.move_toward(destination, delta * SPEED)
 		CustomerState.LEAVING:
@@ -42,7 +44,6 @@ func _process(delta):
 				queue_free()
 	#once character takes their order, state = ORDER_TAKEN
 	#keep checking if customer is satisfied
-	#only if order is fulfilled, state = LEAVING, customer walks out and is destroyed
 
 func displayOrder():
 	order = OrderManager.generateOrder()
