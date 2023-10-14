@@ -7,6 +7,8 @@ class_name Customer extends Interactable
 @onready var item1_2 = $Control/HBoxContainer/HBoxContainer/VBoxContainer/item1_2
 @onready var item2_1 = $Control/HBoxContainer/HBoxContainer/VBoxContainer2/item2_1
 @onready var item2_2 = $Control/HBoxContainer/HBoxContainer/VBoxContainer2/item2_2
+@onready var ui = $UI
+@onready var uiPlayer = $UI/AnimationPlayer
 @onready var customerManager: CustomerManager = get_tree().current_scene.get_node("CustomerManager")
 
 enum CustomerState {
@@ -72,6 +74,8 @@ func completeOrder():
 	baseTexture.visible = false
 	VBox1.visible = false
 	VBox2.visible = false
+	ui.visible = true
+	uiPlayer.play("happy")
 	currState = CustomerState.ORDER_COMPLETE
 
 func leave():
