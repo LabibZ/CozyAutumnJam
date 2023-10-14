@@ -7,8 +7,7 @@ func _ready():
 	
 func start_processing() -> void:
 	super()
-	item.current_state = BoilingPot.BoilingState.FILLING
-	item.emit_signal("boiling_state_changed")
+	item.changeState(BoilingPot.BoilingState.FILLING)
 
 func check_requirements() -> bool:
 	if item is BoilingPot:
@@ -19,5 +18,4 @@ func check_requirements() -> bool:
 
 func processing_done():
 	super()
-	item.current_state = BoilingPot.BoilingState.FILLED
-	item.emit_signal("boiling_state_changed")
+	item.changeState(BoilingPot.BoilingState.FILLED)
