@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bchqvmba4kivt"]
+[gd_scene load_steps=7 format=3 uid="uid://bchqvmba4kivt"]
 
 [ext_resource type="Script" path="res://Scripts/Machines/CoffeeMachine.gd" id="1_jytkg"]
 [ext_resource type="Texture2D" uid="uid://bq6dwn4y4dlef" path="res://Assets/coffeemachine.png" id="2_ar111"]
 [ext_resource type="Texture2D" uid="uid://btcsouljhhq7c" path="res://Assets/counters.png" id="3_5c38c"]
+[ext_resource type="AudioStream" uid="uid://bftiwklwrqhes" path="res://Assets/Sounds/Effects/coffeemachine.mp3" id="4_1neup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjeki"]
 size = Vector2(16, 16)
@@ -38,3 +39,7 @@ region_rect = Rect2(2.08165e-12, 2.08165e-12, 14, 19)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_cmcbe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1neup")
+volume_db = -10.0
