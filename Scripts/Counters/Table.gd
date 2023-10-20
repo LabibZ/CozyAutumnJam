@@ -16,16 +16,19 @@ var current_state: TableState = TableState.EMPTY_TABLE
 var items: Array[Holdable] = []
 var isFull: bool = false
 var tableTimer: Timer
+var customerManager: CustomerManager
 
 var writingSounds = [load("res://Assets/Sounds/Effects/Writing1.wav"), load("res://Assets/Sounds/Effects/Writing2.wav")]
 
 func _ready():
 	super()
+	customerManager = get_tree().current_scene.get_node("CustomerManager") as CustomerManager
 	for chair in $Chairs.get_children():
 		chairs.append(chair)
+		setClosestPath(chair) # may cause problems if CustomerManager is not loaded first
 	for drop in $Drops.get_children():
 		drops.append(drop)
-
+	
 func interact(held_item = null):
 	match current_state:
 		TableState.ORDERS_NOT_TAKEN:
@@ -85,6 +88,17 @@ func removeCustomers():
 			it = null
 	items.clear()
 	setEmpty()
+
+func setClosestPath(chair: Chair):
+	var closest = INF
+	var closest_path = null
+	for path in customerManager.paths:
+		var path_end = path.curve.get_point_position(path.curve.point_count - 1) + path.global_position
+		var distance = chair.global_position.distance_to(path_end)
+		if (distance < closest):
+			closest = distance
+			closest_path = path
+	chair.setClosestPath(closest_path)
 
 func set_item(object):
 	items.append(object)

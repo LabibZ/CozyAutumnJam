@@ -3,14 +3,15 @@ class_name CustomerManager extends Node2D
 @onready var audioPlayer = $AudioStreamPlayer
 
 const SPAWN_INTERVAL: float = 2.0
-const MAX_CUSTOMERS = 4
+const MAX_CUSTOMERS = 5
 
 var spawnTimer: Timer
 var customerSize: int = 0
 var waitingCustomers = []
+var paths = []
 var customerPrefab  = preload("res://Components/Customer.tscn")
-var spawnLowerBound: float
-var spawnUpperBound: float
+var spawnLowerBound: float = 1.0
+var spawnUpperBound: float = 2.0
 
 var arriveSound = load("res://Assets/Sounds/Effects/Store Bell.ogg")
 
@@ -18,6 +19,8 @@ func _ready():
 	spawnTimer = Timer.new()
 	add_child(spawnTimer)
 	spawnTimer.timeout.connect(trySpawnCustomers)
+	for path in $Paths.get_children():
+		paths.append(path as Path2D) 
 
 func _process(_delta):
 	if waitingCustomers:
@@ -40,7 +43,7 @@ func trySpawnCustomers():
 
 func spawnCustomer(arrivingCustomers):
 	var customer = customerPrefab.instantiate()
-	get_tree().current_scene.add_child(customer)
+	add_child(customer)
 	customer.global_position = self.global_position
 	arrivingCustomers.append(customer)
 
@@ -57,7 +60,5 @@ func _on_world_game_state_changed(new_state):
 	match new_state:
 		GameManager.GameState.RUNNING:
 			spawnTimer.start(SPAWN_INTERVAL)
-			spawnLowerBound = 1.0
-			spawnUpperBound = 2.0
 		GameManager.GameState.GAME_OVER:
 			spawnTimer.stop()

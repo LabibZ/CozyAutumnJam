@@ -12,6 +12,7 @@ class_name Customer extends Interactable
 @onready var customerManager: CustomerManager = get_tree().current_scene.get_node("CustomerManager")
 
 enum CustomerState {
+	PATH_FOLLOW,
 	ARRIVING, 
 	NOT_ORDERED, 
 	ORDER_TAKEN,
@@ -19,13 +20,14 @@ enum CustomerState {
 	LEAVING
 }
 
-const SPEED = 80
+var SPEED = randi_range(40, 60)
 signal customer_arrived
 
 var destination: Vector2
 var order: Order = null
 var table: Table = null
-var currState = CustomerState.ARRIVING
+var currState = CustomerState.PATH_FOLLOW
+var closestPath: PathFollow2D = null
 var CoffeeTexture = load("res://Components/Holdable/Cup/CoffeeCup.png")
 var TeaTexture = load("res://Components/Holdable/Cup/TeaCup.tres")
 var MilkTexture = load("res://Components/Holdable/Milk.png")
@@ -33,16 +35,22 @@ var SugarTexture = load("res://Components/Holdable/Sugar.png")
 
 func _process(delta):
 	match currState:
+		CustomerState.PATH_FOLLOW:
+			if closestPath:
+				if closestPath.progress_ratio == 1.0:
+					currState = CustomerState.ARRIVING
+				else:
+					closestPath.progress += delta * SPEED
 		CustomerState.ARRIVING:
 			if destination:
-				if get_position() == destination:
+				if get_global_position() == destination:
 					currState = CustomerState.NOT_ORDERED
 					customer_arrived.emit()
 				else:
-					position = position.move_toward(destination, delta * SPEED)
+					global_position = global_position.move_toward(destination, delta * SPEED)
 		CustomerState.LEAVING:
-			position = position.move_toward(destination, delta * SPEED)
-			if get_position() == destination:
+			global_position = global_position.move_toward(destination, delta * SPEED)
+			if get_global_position() == destination:
 				queue_free()
 	#once character takes their order, state = ORDER_TAKEN
 	#keep checking if customer is satisfied

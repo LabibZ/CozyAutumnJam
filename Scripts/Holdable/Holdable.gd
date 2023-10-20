@@ -31,7 +31,9 @@ func drop(hand, placeable):
 	placeable.add_child(self)
 	placeable.set_item(self)
 	placeable.reset_shader()
-	if placeable is Counter:
+	if placeable is Table:
+		reset_shader()
+	elif placeable is Counter:
 		set_shader()
 	if placeable is Table or placeable is Sink:
 		self.global_position = placeable.dropPoint

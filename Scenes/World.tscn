@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=38 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_iisr0"]
@@ -23,6 +23,54 @@
 [ext_resource type="PackedScene" uid="uid://dm4s7231d7lcq" path="res://Components/Counters/Trash.tscn" id="18_xk1mc"]
 [ext_resource type="Texture2D" uid="uid://c322lmlnohwfr" path="res://Assets/donuts.png" id="19_vgp8c"]
 [ext_resource type="PackedScene" uid="uid://c6uce84xyk5md" path="res://Components/Table/TableLongTop.tscn" id="23_2ssd2"]
+
+[sub_resource type="Curve2D" id="Curve2D_qqcrr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 24, -104, 0, 0, 0, 0, -56, -104)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_oavd4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 24, -104, 0, 0, 0, 0, -8, -104)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_rladb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 24, -56, 0, 0, 0, 0, -56, -56)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_soh74"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 24, -56, 0, 0, 0, 0, -8, -56)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_dcog7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 24, -48)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ajtlb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 24, -64)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_dnegt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 24, -80)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_8ctw6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 24, -16, 0, 0, 0, 0, 24, -96)
+}
+point_count = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwan2"]
 shadow_size = 4
@@ -52,6 +100,32 @@ position = Vector2(96, 224)
 script = ExtResource("2_dmpne")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CustomerManager"]
+
+[node name="Paths" type="Node2D" parent="CustomerManager"]
+
+[node name="TopLeftPath" type="Path2D" parent="CustomerManager/Paths"]
+curve = SubResource("Curve2D_qqcrr")
+
+[node name="TopRightPath" type="Path2D" parent="CustomerManager/Paths"]
+curve = SubResource("Curve2D_oavd4")
+
+[node name="BottomLeftPath" type="Path2D" parent="CustomerManager/Paths"]
+curve = SubResource("Curve2D_rladb")
+
+[node name="BottomRightPath" type="Path2D" parent="CustomerManager/Paths"]
+curve = SubResource("Curve2D_soh74")
+
+[node name="Long1" type="Path2D" parent="CustomerManager/Paths"]
+curve = SubResource("Curve2D_dcog7")
+
+[node name="Long2" type="Path2D" parent="CustomerManager/Paths"]
+curve = SubResource("Curve2D_ajtlb")
+
+[node name="Long3" type="Path2D" parent="CustomerManager/Paths"]
+curve = SubResource("Curve2D_dnegt")
+
+[node name="Long4" type="Path2D" parent="CustomerManager/Paths"]
+curve = SubResource("Curve2D_8ctw6")
 
 [node name="levelTimer" type="Label" parent="."]
 offset_left = 10.0
