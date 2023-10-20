@@ -3,6 +3,7 @@ class_name Chair extends Node2D
 var isOccupied: bool = false
 var occupant: Customer = null
 var closestPath: Path2D = null
+var leftSeat = true
 
 func getIsOccupied() -> bool:
 	return isOccupied
@@ -23,7 +24,9 @@ func setOccupantCompleted() -> void:
 	occupant.completeOrder()
 	
 func setOccupantLeaving() -> void:
+	occupant.destination = closestPath.curve.get_point_position(closestPath.curve.point_count - 1) + closestPath.global_position
 	occupant.leave()
+	
 	
 func setOccupantClosestPath() -> void:
 	var path_follow = PathFollow2D.new()
@@ -41,6 +44,7 @@ func setClosestPath(path: Path2D) -> void:
 func seat(customer: Customer) -> void:
 	occupant = customer
 	isOccupied = true
+	occupant.leftSeat = leftSeat
 	setOccupantClosestPath()
 	
 func unseat() -> void:

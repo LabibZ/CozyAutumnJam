@@ -17,5 +17,5 @@ func empty():
 	super()
 	dump()
 	get_node(".").region_rect = emptyCup
-	steam.stop()
+	steamPlayer.stop()
 	steam.visible = false

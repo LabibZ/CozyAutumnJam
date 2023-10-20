@@ -1,5 +1,6 @@
-class_name Customer extends Interactable
+class_name Customer extends CharacterBody2D
 
+### UI
 @onready var baseTexture = $Control/HBoxContainer/Base
 @onready var VBox1 = $Control/HBoxContainer/HBoxContainer/VBoxContainer
 @onready var VBox2 = $Control/HBoxContainer/HBoxContainer/VBoxContainer2
@@ -9,6 +10,14 @@ class_name Customer extends Interactable
 @onready var item2_2 = $Control/HBoxContainer/HBoxContainer/VBoxContainer2/item2_2
 @onready var ui = $UI
 @onready var uiPlayer = $UI/AnimationPlayer
+### Sprites
+@onready var BodySprite = $Sprites/Body
+@onready var OutfitSprite = $Sprites/Outfit
+@onready var HairSprite = $Sprites/Hair
+@onready var EyesSprite = $Sprites/Eyes
+@onready var animationTree = $AnimationTree
+@onready var animationState = animationTree.get("parameters/playback")
+### Managers
 @onready var customerManager: CustomerManager = get_tree().current_scene.get_node("CustomerManager")
 
 enum CustomerState {
@@ -17,7 +26,8 @@ enum CustomerState {
 	NOT_ORDERED, 
 	ORDER_TAKEN,
 	ORDER_COMPLETE,
-	LEAVING
+	LEAVING,
+	PATH_FOLLOW_LEAVE
 }
 
 var SPEED = randi_range(40, 60)
@@ -26,6 +36,7 @@ signal customer_arrived
 var destination: Vector2
 var order: Order = null
 var table: Table = null
+var leftSeat = true
 var currState = CustomerState.PATH_FOLLOW
 var closestPath: PathFollow2D = null
 var CoffeeTexture = load("res://Components/Holdable/Cup/CoffeeCup.png")
@@ -33,25 +44,56 @@ var TeaTexture = load("res://Components/Holdable/Cup/TeaCup.tres")
 var MilkTexture = load("res://Components/Holdable/Milk.png")
 var SugarTexture = load("res://Components/Holdable/Sugar.png")
 
+func _ready():
+	SpriteGenerator.GenerateCharacter(BodySprite, OutfitSprite, HairSprite, EyesSprite)
+
 func _process(delta):
+	var direction = Vector2.ZERO
 	match currState:
 		CustomerState.PATH_FOLLOW:
 			if closestPath:
 				if closestPath.progress_ratio == 1.0:
 					currState = CustomerState.ARRIVING
 				else:
+					var old_pos = global_position
 					closestPath.progress += delta * SPEED
+					direction = (global_position - old_pos) * 50
 		CustomerState.ARRIVING:
 			if destination:
 				if get_global_position() == destination:
 					currState = CustomerState.NOT_ORDERED
 					customer_arrived.emit()
 				else:
+					direction = destination - global_position
 					global_position = global_position.move_toward(destination, delta * SPEED)
 		CustomerState.LEAVING:
-			global_position = global_position.move_toward(destination, delta * SPEED)
-			if get_global_position() == destination:
-				queue_free()
+			if destination:
+				if get_global_position() == destination:
+					currState = CustomerState.PATH_FOLLOW_LEAVE
+				else:
+					direction = destination - global_position
+					global_position = global_position.move_toward(destination, delta * SPEED)
+		CustomerState.PATH_FOLLOW_LEAVE:
+			if closestPath:
+				if closestPath.progress_ratio == 0.0:
+					closestPath.queue_free()
+					queue_free()
+				else:
+					var old_pos = global_position
+					closestPath.progress -= delta * SPEED
+					direction = (global_position - old_pos) * 50				
+	direction.normalized()
+	if direction != Vector2.ZERO:
+		animationTree.set("parameters/Idle/blend_position", direction)
+		animationTree.set("parameters/Run/blend_position", direction)
+		animationState.travel("Run")
+	elif currState != CustomerState.PATH_FOLLOW and currState != CustomerState.ARRIVING and currState != CustomerState.LEAVING:
+		if leftSeat:
+			animationState.travel("sit_right")
+		else:
+			animationState.travel("sit_left")
+	else:
+		animationState.travel("Idle")
 	#once character takes their order, state = ORDER_TAKEN
 	#keep checking if customer is satisfied
 
@@ -88,7 +130,6 @@ func completeOrder():
 
 func leave():
 	currState = CustomerState.LEAVING
-	destination = customerManager.global_position
 	customerManager.customerSize -= 1
 
 func getOrder():

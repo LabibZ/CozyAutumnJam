@@ -26,6 +26,8 @@ func _ready():
 	for chair in $Chairs.get_children():
 		chairs.append(chair)
 		setClosestPath(chair) # may cause problems if CustomerManager is not loaded first
+		if self.global_position.x - chair.global_position.x < 0:
+			chair.leftSeat = false
 	for drop in $Drops.get_children():
 		drops.append(drop)
 	

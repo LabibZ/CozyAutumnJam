@@ -632,7 +632,7 @@ position = Vector2(0, -15)
 texture = ExtResource("2_vtxa6")
 hframes = 24
 vframes = 3
-frame = 2
+frame = 1
 region_enabled = true
 region_rect = Rect2(0, 0, 384, 96)
 
@@ -650,12 +650,12 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_rgf50")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Idle/blend_position = Vector2(-0.927723, 0.6869)
+parameters/Idle/blend_position = Vector2(0.179789, -0.303646)
 parameters/Run/blend_position = Vector2(-0.00495052, 0.504367)
 
 [node name="Direction" type="Marker2D" parent="."]
-position = Vector2(0, -1)
-rotation = 1.5708
+position = Vector2(0, 1)
+rotation = 3.14159
 metadata/_edit_lock_ = true
 
 [node name="InteractableFinder" type="Area2D" parent="Direction"]
@@ -673,7 +673,7 @@ shape = SubResource("RectangleShape2D_bumxa")
 [node name="Hand" type="Marker2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(0, -4)
+position = Vector2(6, -5)
 gizmo_extents = 5.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
