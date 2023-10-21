@@ -1,7 +1,7 @@
 class_name Interactable extends Area2D
 
 var label: String
-@onready var InteractMaterial = preload("res://InteractMaterial.tres")
+@onready var InteractMaterial = preload("res://Scripts/InteractMaterial.tres")
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _ready():

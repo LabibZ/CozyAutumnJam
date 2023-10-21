@@ -36,7 +36,6 @@ func setOccupantClosestPath() -> void:
 	occupant.closestPath = path_follow
 	occupant.get_parent().remove_child(occupant)
 	occupant.closestPath.add_child(occupant)
-	print(closestPath)
 
 func setClosestPath(path: Path2D) -> void:
 	closestPath = path

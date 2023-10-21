@@ -16,8 +16,8 @@ func generateOrder():
 	for i in range(numMilk):
 		ingredients.append("Milk")
 	# orders.append(Order.new(BASE[base], ingredients))
-	print(BASE[base])
-	print(ingredients)
+	# print(BASE[base])
+	# print(ingredients)
 	
 	#return the index of the order for reference in customer object
 	return Order.new(BASE[base], ingredients)

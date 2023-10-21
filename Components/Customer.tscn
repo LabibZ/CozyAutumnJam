@@ -7,6 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://doqoyf3rjks4q" path="res://Assets/CharacterGeneration/Hair/Hairstyle_01_01.png" id="4_0weux"]
 [ext_resource type="Texture2D" uid="uid://dx7l1qyswwiu1" path="res://Assets/CharacterGeneration/Eyes/Eyes_01.png" id="5_n3t73"]
 
+[sub_resource type="Animation" id="Animation_tis8h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [102]
+}
+
 [sub_resource type="Animation" id="Animation_whhx6"]
 resource_name = "idle_down"
 length = 0.1
@@ -431,59 +446,6 @@ tracks/3/keys = {
 "values": [54, 55, 56, 57, 58, 59]
 }
 
-[sub_resource type="Animation" id="Animation_njv4l"]
-resource_name = "sit_right"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprites/Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [96]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprites/Outfit:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [96]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprites/Hair:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [96]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprites/Eyes:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [96]
-}
-
 [sub_resource type="Animation" id="Animation_v02sq"]
 resource_name = "sit_left"
 length = 0.1
@@ -537,8 +499,10 @@ tracks/3/keys = {
 "values": [102]
 }
 
-[sub_resource type="Animation" id="Animation_tis8h"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_njv4l"]
+resource_name = "sit_right"
+length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -549,7 +513,43 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [102]
+"values": [96]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Outfit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [96]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Hair:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [96]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Eyes:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [96]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j0gpc"]
@@ -719,7 +719,7 @@ position = Vector2(0, -16)
 texture = ExtResource("3_7cbfm")
 hframes = 24
 vframes = 6
-frame = 96
+frame = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 384, 192)
 
@@ -728,7 +728,7 @@ position = Vector2(0, -16)
 texture = ExtResource("4_0weux")
 hframes = 24
 vframes = 6
-frame = 96
+frame = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 384, 192)
 
@@ -737,7 +737,7 @@ position = Vector2(0, -16)
 texture = ExtResource("5_n3t73")
 hframes = 24
 vframes = 6
-frame = 96
+frame = 2
 region_enabled = true
 region_rect = Rect2(0, 0, 384, 192)
 

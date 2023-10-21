@@ -13,6 +13,7 @@ var levelTotalTime: float = 90.0
 var score: int = 0
 
 @onready var levelTimerText = $levelTimer
+@onready var scoreText = $Score
 @onready var ambience = $Ambience
 
 var cafeAmbience = load("res://Assets/Sounds/Effects/Cafe Ambience.ogg")
@@ -21,12 +22,12 @@ signal game_state_changed(new_state)
 
 func _ready():
 	setup_level()
-	set_game_state(GameState.PREPARE)
+	set_game_state(GameState.RUNNING) # set to Prepare for future
 	
 func _input(_event):
 	if Input.is_key_pressed(KEY_K) and current_state == GameState.PREPARE:
 		set_game_state(GameState.RUNNING)
-		print("game running")
+		# print("game running")
 
 func _process(_delta):
 	if levelTimerText:
@@ -63,6 +64,11 @@ func setup_level():
 	add_child(levelTimer)
 	levelTimer.timeout.connect(end_level)
 	# Start Customers
-	
+
+func update_score(amount):
+	score += amount
+	scoreText.text = str(score)
+
 func end_level():
 	levelTimer.stop()
+	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")

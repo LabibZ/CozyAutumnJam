@@ -32,7 +32,7 @@ func add(ingredient):
 				item2_1.texture = getIngredientTexture(order._ingredients[i])
 			3:
 				item2_2.texture = getIngredientTexture(order._ingredients[i])
-	print("Added " + ingredient)
+	#print("Added " + ingredient)
 	
 func dump():
 	order._base = ""

@@ -33,13 +33,13 @@ func start_processing() -> void:
 	current_state = MachineState.WORKING
 	item.start_timer()
 	item.timerBar.visible = true
-	print("working")
+	#print("working")
 
 func processing_done() -> void:
 	current_state = MachineState.DONE
 	item.timerBar.visible = false
-	print("done")
+	#print("done")
 	
 func reset_machine() -> void:
 	current_state = MachineState.IDLE
-	print("idle")
+	#print("idle")

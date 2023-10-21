@@ -17,12 +17,14 @@ var items: Array[Holdable] = []
 var isFull: bool = false
 var tableTimer: Timer
 var customerManager: CustomerManager
+var gameManager: GameManager
 
 var writingSounds = [load("res://Assets/Sounds/Effects/Writing1.wav"), load("res://Assets/Sounds/Effects/Writing2.wav")]
 
 func _ready():
 	super()
 	customerManager = get_tree().current_scene.get_node("CustomerManager") as CustomerManager
+	gameManager = get_tree().current_scene as GameManager
 	for chair in $Chairs.get_children():
 		chairs.append(chair)
 		setClosestPath(chair) # may cause problems if CustomerManager is not loaded first
@@ -84,6 +86,7 @@ func removeCustomers():
 		if chair.isOccupied:
 			chair.setOccupantLeaving()
 			chair.unseat()
+			gameManager.update_score(25)
 	for it in items:
 		if is_instance_valid(it):
 			it.queue_free()
@@ -104,7 +107,6 @@ func setClosestPath(chair: Chair):
 
 func set_item(object):
 	items.append(object)
-	print(items.size())
 
 func setFull():
 	isFull = true

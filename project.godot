@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="CozyAutumnJam"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
 config/features=PackedStringArray("4.1")
+run/max_fps=60
 config/icon="res://icon.png"
 
 [autoload]
@@ -22,10 +23,10 @@ SpriteGenerator="*res://Scripts/SpriteGenerator.gd"
 
 [display]
 
-window/size/viewport_width=192
-window/size/viewport_height=208
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/viewport_width=320
+window/size/viewport_height=240
+window/size/window_width_override=1024
+window/size/window_height_override=768
 window/stretch/mode="viewport"
 
 [gui]

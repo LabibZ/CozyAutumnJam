@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdm8voaxessji"]
+[gd_scene load_steps=10 format=3 uid="uid://cdm8voaxessji"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_2dm1j"]
-[ext_resource type="Texture2D" uid="uid://n2mhaeha2rwy" path="res://menu_bg.png" id="2_wcn7c"]
+[ext_resource type="Script" path="res://Scenes/Menu/Menu.gd" id="1_3kdpb"]
+[ext_resource type="Texture2D" uid="uid://cejc6m47jiu72" path="res://Scenes/Menu/menu_bg.png" id="2_n0hlu"]
+[ext_resource type="FontFile" uid="uid://dj7ecevnrix4n" path="res://Assets/Daydream/Daydream.ttf" id="3_gds1k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jlm3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kx0og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5bjaj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awjeo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d05hy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qxkl"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,30 +23,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2dm1j")
+script = ExtResource("1_3kdpb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(164, 200)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_wcn7c")
+texture = ExtResource("2_n0hlu")
+centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 140.0
-offset_right = 200.0
-offset_bottom = 320.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -169.0
+offset_right = 167.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.75, 0.75)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 0, 1)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gds1k")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jlm3j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kx0og")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5bjaj")
 text = "Play"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gds1k")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_awjeo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d05hy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0qxkl")
 text = "Exit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

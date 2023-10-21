@@ -2,7 +2,7 @@ class_name CustomerManager extends Node2D
 
 @onready var audioPlayer = $AudioStreamPlayer
 
-const SPAWN_INTERVAL: float = 2.0
+const SPAWN_INTERVAL: float = 10.0
 const MAX_CUSTOMERS = 5
 
 var spawnTimer: Timer
@@ -60,5 +60,6 @@ func _on_world_game_state_changed(new_state):
 	match new_state:
 		GameManager.GameState.RUNNING:
 			spawnTimer.start(SPAWN_INTERVAL)
+			trySpawnCustomers()
 		GameManager.GameState.GAME_OVER:
 			spawnTimer.stop()

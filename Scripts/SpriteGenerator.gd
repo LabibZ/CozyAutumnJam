@@ -21,11 +21,11 @@ func loadImagesFromDir(list, path):
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
+			file_name = file_name.replace(".import", "")
 			if !file_name.begins_with(".") and !file_name.ends_with(".import"):
-				list.append(load(path + "/" + file_name))
+				list.append(load((path + "/" + file_name)))
 			file_name = dir.get_next()
 		dir.list_dir_end()
-	
 
 func GenerateCharacter(body: Sprite2D, outfit: Sprite2D, hair: Sprite2D, eyes: Sprite2D):
 	GenerateBody(body)

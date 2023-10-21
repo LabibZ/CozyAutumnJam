@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://56hkcscnywk8"
-path="res://.godot/imported/Carpet2.png-c94112438be4bae3271a05d80a8ec265.ctex"
+uid="uid://pr36e50n531c"
+path="res://.godot/imported/wood_button.png-248a6f070586c817e399c181cacb57d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://oldMap/Carpet2.png"
-dest_files=["res://.godot/imported/Carpet2.png-c94112438be4bae3271a05d80a8ec265.ctex"]
+source_file="res://Scenes/Menu/wood_button.png"
+dest_files=["res://.godot/imported/wood_button.png-248a6f070586c817e399c181cacb57d8.ctex"]
 
 [params]
 

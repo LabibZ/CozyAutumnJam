@@ -1,7 +1,8 @@
 extends Control
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Scenes/World.tscn")
+	var loadingScreen = load("res://Scenes/Loading.tscn")
+	get_tree().change_scene_to_packed(loadingScreen)
 
 func _on_options_pressed():
 	pass # Replace with function body.

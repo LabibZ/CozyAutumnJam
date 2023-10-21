@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i1hmpnx83nug"
-path="res://.godot/imported/Counter.png-7b3321201ff21b1384d78d5dbd999cd7.ctex"
+uid="uid://cejc6m47jiu72"
+path="res://.godot/imported/menu_bg.png-9aa015822649d5ece9d34649de28021e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Counter.png"
-dest_files=["res://.godot/imported/Counter.png-7b3321201ff21b1384d78d5dbd999cd7.ctex"]
+source_file="res://Scenes/Menu/menu_bg.png"
+dest_files=["res://.godot/imported/menu_bg.png-9aa015822649d5ece9d34649de28021e.ctex"]
 
 [params]
 

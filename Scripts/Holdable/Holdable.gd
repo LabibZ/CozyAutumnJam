@@ -3,7 +3,7 @@ class_name Holdable extends Node2D
 var timer: Timer
 var processing_time: float = 5.0
 var order: Order
-@onready var InteractMaterial = preload("res://InteractMaterial.tres")
+@onready var InteractMaterial = preload("res://Scripts/InteractMaterial.tres")
 
 func _ready():
 	init_timer()

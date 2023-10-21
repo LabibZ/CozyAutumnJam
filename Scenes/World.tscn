@@ -1,10 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://qq3cb2jglr33"]
+[gd_scene load_steps=39 format=3 uid="uid://qq3cb2jglr33"]
 
 [ext_resource type="PackedScene" uid="uid://ckukl6akordi6" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_iisr0"]
 [ext_resource type="Script" path="res://Scripts/CustomerManager.gd" id="2_dmpne"]
+[ext_resource type="FontFile" uid="uid://bgm1d8w1xosfy" path="res://Assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="3_n0ytw"]
 [ext_resource type="PackedScene" uid="uid://cfqv4l11ddkkb" path="res://Components/Counters/LeftCounter.tscn" id="4_myho3"]
-[ext_resource type="PackedScene" uid="uid://ciobcd30e4767" path="res://Components/Counters/RightCounter.tscn" id="7_8n2q5"]
 [ext_resource type="PackedScene" uid="uid://kjhwbmhge5hu" path="res://Components/Machines/BoilingStation.tscn" id="7_fe1l4"]
 [ext_resource type="PackedScene" uid="uid://ougl1rbsmstd" path="res://Components/Counters/Counter.tscn" id="8_homoj"]
 [ext_resource type="PackedScene" uid="uid://brh2njvhhn80s" path="res://Components/Holdable/BoilingPot.tscn" id="8_ltwn4"]
@@ -73,8 +73,14 @@ _data = {
 point_count = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwan2"]
+font = ExtResource("3_n0ytw")
 shadow_size = 4
 shadow_color = Color(0, 0.258824, 0.113725, 0.65098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0brd"]
+font = ExtResource("3_n0ytw")
+shadow_size = 4
+shadow_color = Color(0.619608, 0.705882, 0.376471, 0.580392)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ltnf"]
 size = Vector2(48, 16)
@@ -95,55 +101,89 @@ size = Vector2(162, 5)
 y_sort_enabled = true
 script = ExtResource("1_iisr0")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
 [node name="CustomerManager" type="Node2D" parent="."]
-position = Vector2(96, 224)
+position = Vector2(160, 240)
 script = ExtResource("2_dmpne")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CustomerManager"]
 
 [node name="Paths" type="Node2D" parent="CustomerManager"]
+z_index = 1
+y_sort_enabled = true
 
 [node name="TopLeftPath" type="Path2D" parent="CustomerManager/Paths"]
+z_index = 1
+y_sort_enabled = true
 curve = SubResource("Curve2D_qqcrr")
 
 [node name="TopRightPath" type="Path2D" parent="CustomerManager/Paths"]
+z_index = 1
+y_sort_enabled = true
 curve = SubResource("Curve2D_oavd4")
 
 [node name="BottomLeftPath" type="Path2D" parent="CustomerManager/Paths"]
+z_index = 1
+y_sort_enabled = true
 curve = SubResource("Curve2D_rladb")
 
 [node name="BottomRightPath" type="Path2D" parent="CustomerManager/Paths"]
+z_index = 1
+y_sort_enabled = true
 curve = SubResource("Curve2D_soh74")
 
 [node name="Long1" type="Path2D" parent="CustomerManager/Paths"]
+z_index = 1
+y_sort_enabled = true
 curve = SubResource("Curve2D_dcog7")
 
 [node name="Long2" type="Path2D" parent="CustomerManager/Paths"]
+z_index = 1
+y_sort_enabled = true
 curve = SubResource("Curve2D_ajtlb")
 
 [node name="Long3" type="Path2D" parent="CustomerManager/Paths"]
+z_index = 1
+y_sort_enabled = true
 curve = SubResource("Curve2D_dnegt")
 
 [node name="Long4" type="Path2D" parent="CustomerManager/Paths"]
+z_index = 1
+y_sort_enabled = true
 curve = SubResource("Curve2D_8ctw6")
 
 [node name="levelTimer" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 6.0
-offset_right = 43.0
-offset_bottom = 29.0
+offset_left = 74.0
+offset_top = 22.0
+offset_right = 107.0
+offset_bottom = 45.0
 text = "0:00"
 label_settings = SubResource("LabelSettings_kwan2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="."]
+offset_left = 209.0
+offset_top = 22.0
+offset_right = 247.0
+offset_bottom = 45.0
+text = "0"
+label_settings = SubResource("LabelSettings_h0brd")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(124, 128)
+position = Vector2(188, 144)
 
 [node name="Front Counters" type="Node2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(136, 80)
+position = Vector2(200, 96)
 
 [node name="Counter" parent="Front Counters" instance=ExtResource("4_myho3")]
 position = Vector2(-32, 0)
@@ -154,7 +194,7 @@ position = Vector2(-16, 0)
 [node name="Counter3" parent="Front Counters" instance=ExtResource("8_homoj")]
 position = Vector2(0, 0)
 
-[node name="CoffeeCupCounter" parent="Front Counters" instance=ExtResource("16_ecrac")]
+[node name="Counter4" parent="Front Counters" instance=ExtResource("8_homoj")]
 position = Vector2(16, 0)
 
 [node name="TeaCupCounter" parent="Front Counters" instance=ExtResource("17_qqjhx")]
@@ -163,23 +203,21 @@ position = Vector2(32, 0)
 [node name="Back Counters" type="Node2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+position = Vector2(64, 16)
 
 [node name="Counter2" parent="Back Counters" instance=ExtResource("8_homoj")]
 position = Vector2(104, 48)
 
-[node name="BoilingPot" parent="Back Counters/Counter2" instance=ExtResource("8_ltwn4")]
-
 [node name="Counter3" parent="Back Counters" instance=ExtResource("8_homoj")]
 position = Vector2(120, 48)
+
+[node name="BoilingPot" parent="Back Counters/Counter3" instance=ExtResource("8_ltwn4")]
 
 [node name="Counter4" parent="Back Counters" instance=ExtResource("8_homoj")]
 position = Vector2(152, 48)
 
 [node name="Sink" parent="Back Counters" instance=ExtResource("9_n66vv")]
 position = Vector2(137, 48)
-
-[node name="Counter5" parent="Back Counters" instance=ExtResource("7_8n2q5")]
-position = Vector2(168, 48)
 
 [node name="Counter6" parent="Back Counters" instance=ExtResource("4_myho3")]
 position = Vector2(24, 48)
@@ -196,9 +234,13 @@ position = Vector2(72, 48)
 [node name="MilkCounter" parent="Back Counters" instance=ExtResource("15_76xyj")]
 position = Vector2(56, 48)
 
+[node name="CoffeeCupCounter" parent="Back Counters" instance=ExtResource("16_ecrac")]
+position = Vector2(168, 48)
+
 [node name="Tables" type="Node2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+position = Vector2(64, 16)
 
 [node name="TableLongBottom" parent="Tables" instance=ExtResource("17_hnsbr")]
 position = Vector2(169, 177)
@@ -221,7 +263,7 @@ position = Vector2(63, 144)
 position = Vector2(63, 180)
 
 [node name="SugarCounter" parent="." instance=ExtResource("16_cscdf")]
-position = Vector2(24, 104)
+position = Vector2(88, 120)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_fohtd")
@@ -234,9 +276,9 @@ autoplay = true
 
 [node name="Cozybg" type="Sprite2D" parent="."]
 y_sort_enabled = true
+position = Vector2(64, 16)
 texture = ExtResource("16_6amnq")
 centered = false
-metadata/_edit_lock_ = true
 
 [node name="Donuts" type="Sprite2D" parent="Cozybg"]
 z_index = 1

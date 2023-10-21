@@ -20,7 +20,7 @@ script = ExtResource("1_823a3")
 position = Vector2(0, 5)
 texture = ExtResource("2_6eo7y")
 region_enabled = true
-region_rect = Rect2(16, 2.08165e-12, 16, 22)
+region_rect = Rect2(48, 0, 16, 22)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
 

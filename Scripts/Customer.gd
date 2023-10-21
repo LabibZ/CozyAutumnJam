@@ -81,7 +81,7 @@ func _process(delta):
 				else:
 					var old_pos = global_position
 					closestPath.progress -= delta * SPEED
-					direction = (global_position - old_pos) * 50				
+					direction = (global_position - old_pos) * 50
 	direction.normalized()
 	if direction != Vector2.ZERO:
 		animationTree.set("parameters/Idle/blend_position", direction)

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bgm1d8w1xosfy"
-path="res://.godot/imported/PixelifySans-VariableFont_wght.ttf-d613da1221ca3638b983115db06123eb.fontdata"
+uid="uid://dj7ecevnrix4n"
+path="res://.godot/imported/Daydream.ttf-d39c3b5c17e51d35791b2f95a5e550f8.fontdata"
 
 [deps]
 
-source_file="res://Assets/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/PixelifySans-VariableFont_wght.ttf-d613da1221ca3638b983115db06123eb.fontdata"]
+source_file="res://Assets/Daydream/Daydream.ttf"
+dest_files=["res://.godot/imported/Daydream.ttf-d39c3b5c17e51d35791b2f95a5e550f8.fontdata"]
 
 [params]
 

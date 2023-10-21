@@ -147,7 +147,7 @@ func handle_noitem_interaction(currInteraction):
 		held_item.pickup(hand)
 		currInteraction.item = null
 	else:
-		print("interacted with object with no class attached or case not made.")
+		# print("interacted with object with no class attached or case not made.")
 		currInteraction.interact()
 
 ########################
